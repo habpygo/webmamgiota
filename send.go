@@ -33,7 +33,7 @@ import (
 //These nodes were working during the demo in Amsterdam 25 October, 2017. Currently only node01 is active
 //var nodes = [4]string{"http://node01.iotameetup.nl:14265", "http://node02.iotameetup.nl:14265", "http://node03.iotameetup.nl:14265", "http://node04.iotatoken.nl:14265"}
 
-//Below the address of http://node01.iotameetup.nl:1337/ where to send the MAM
+//Below the address of http://node01.iotameetup.nl:1337/ to where you could send the MAM
 //fmt.Println() statements are for debugging purposes
 var address = "XHBQNNJB9ESMBABXJVVRLXTKXTKOINIJCXOEHIMOJIGLOCPFXYCZGVTHK9RBQWECIXGOKLYFMOXRPYBPWVZG9B9LTZ"
 var seed = ""
