@@ -15,4 +15,4 @@ $ go get -u github.com/habpygo/mamgoiota
 ```
 
 # TODO
-Currently there is an error message `Invalid transaction hash` when sending the messasge to the tangel; however, this could be due to a bug in the `iota.lib.go` library.
+Currently there is an error message `Invalid transaction hash` when sending the messasge to the tangle; however, this could be due to a bug in the `iota.lib.go` library.
