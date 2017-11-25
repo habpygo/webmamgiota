@@ -73,25 +73,39 @@ func main() {
 	}
 	//fmt.Println("The address is: ", address)
 
-	trs := []giota.Transfer{
-		giota.Transfer{
-			Address: address,
-			Value:   0,
-			Message: msg,
-			Tag:     "",
+	// trs := []giota.Transfer{
+	// 	giota.Transfer{
+	// 		Address: address,
+	// 		Value:   0,
+	// 		Message: msg,
+	// 		Tag:     "",
+	// 	},
+	// }
+
+	trx := []giota.Transaction{
+		giota.Transaction{
+			Address:                  address,
+			SignatureMessageFragment: msg,
+			Value:     0,
+			Timestamp: time.Now(),
 		},
 	}
 
-	fmt.Println("trs is: ", trs)
+	fmt.Println("trs is: ", trx)
 
 	//Uncomment two lines below if you want to check the message
 	//stringMessage := stringutils.FromMAMTrytes(msg)
 	//fmt.Println("stringMessage is: ", stringMessage)
 
-	bdl, txErr := giota.Send(api, seedTrytes, 9, trs, 14, nil)
-	if txErr != nil {
-		fmt.Println("Error while sending Trytes: ", txErr)
+	// bdl, trsErr := giota.Send(api, seedTrytes, 9, trs, 14, nil)
+	// if trsErr != nil {
+	// 	fmt.Println("Error while sending Trytes: ", trsErr)
+	// }
+	// fmt.Println("The bundle is: ", bdl)
+
+	trxErr := giota.SendTrytes(api, 3, trx, 14, nil)
+	if trxErr != nil {
+		fmt.Println("Error sending Trytes: ", trxErr)
 	}
-	fmt.Println("The bundle is: ", bdl)
 
 }
