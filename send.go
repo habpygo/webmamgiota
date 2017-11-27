@@ -34,7 +34,6 @@ import (
 //var nodes = [4]string{"http://node01.iotameetup.nl:14265", "http://node02.iotameetup.nl:14265", "http://node03.iotameetup.nl:14265", "http://node04.iotatoken.nl:14265"}
 
 //Below the address of http://node01.iotameetup.nl:1337/ to where you could send the MAM
-//fmt.Println() statements are for debugging purposes
 var address = "XHBQNNJB9ESMBABXJVVRLXTKXTKOINIJCXOEHIMOJIGLOCPFXYCZGVTHK9RBQWECIXGOKLYFMOXRPYBPWVZG9B9LTZ"
 var seed = ""
 
@@ -43,7 +42,7 @@ func main() {
 
 	trits := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-	message := "IOTA World from Golang, do you read?"
+	message := "Test Go implementation of sent.ts!"
 
 	// Select a random seed
 	for i := 0; i < 81; i++ {
@@ -71,41 +70,27 @@ func main() {
 	if err != nil {
 		fmt.Println("error in address: ", address)
 	}
-	//fmt.Println("The address is: ", address)
 
-	// trs := []giota.Transfer{
-	// 	giota.Transfer{
-	// 		Address: address,
-	// 		Value:   0,
-	// 		Message: msg,
-	// 		Tag:     "",
-	// 	},
-	// }
-
-	trx := []giota.Transaction{
-		giota.Transaction{
-			Address:                  address,
-			SignatureMessageFragment: msg,
-			Value:     0,
-			Timestamp: time.Now(),
+	//Transfer
+	trs := []giota.Transfer{
+		giota.Transfer{
+			Address: address,
+			Value:   0,
+			Message: msg,
+			Tag:     "",
 		},
 	}
 
-	fmt.Println("trs is: ", trx)
-
-	//Uncomment two lines below if you want to check the message
+	//Uncomment two lines below if you want to check the message on the Cli
 	//stringMessage := stringutils.FromMAMTrytes(msg)
 	//fmt.Println("stringMessage is: ", stringMessage)
+	stringFromPoW, bestPow := giota.GetBestPoW()
 
-	// bdl, trsErr := giota.Send(api, seedTrytes, 9, trs, 14, nil)
-	// if trsErr != nil {
-	// 	fmt.Println("Error while sending Trytes: ", trsErr)
-	// }
-	// fmt.Println("The bundle is: ", bdl)
-
-	trxErr := giota.SendTrytes(api, 3, trx, 14, nil)
-	if trxErr != nil {
-		fmt.Println("Error sending Trytes: ", trxErr)
+	bdl, trsErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
+	if trsErr != nil {
+		fmt.Println("From send.go: Error while sending Trytes: ", trsErr)
 	}
+	fmt.Println("The bundle is: ", bdl)
+	fmt.Println("stringFromPow is: ", stringFromPoW)
 
 }
