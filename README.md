@@ -2,7 +2,7 @@
 
 Small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang.
 
-This project is still under construction (see TODO) so it's not functioning yet.
+This project is still under construction (see TODO) with the aim to get the ruuVi tag to send MAMs.
 
 # Install
 It is assumed that you have Golang installed. You also need to install the Go library API for IOTA which you can download at:
