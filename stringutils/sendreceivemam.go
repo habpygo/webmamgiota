@@ -38,7 +38,8 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 	}
 
 	trytes := ""
-	TryteValues := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	//TryteValues := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	TryteValues := giota.TryteAlphabet
 
 	for i := 0; i < len(t); i++ {
 		asciiValue := CharCodeAt(string(t[i]), 0)
@@ -50,7 +51,6 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 		trytesValue := string(TryteValues[firstValue]) + string(TryteValues[secondValue])
 		trytes = trytes + trytesValue
 	}
-	fmt.Println("trytes is: ", trytes)
 
 	newTrytes := giota.Trytes(trytes)
 
@@ -61,7 +61,8 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 func FromMAMTrytes(inputTrytes giota.Trytes) string {
 	// character := ""
 	outputString := ""
-	TryteValues := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	//TryteValues := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	TryteValues := giota.TryteAlphabet
 	// Check if input is a string
 	if IsString(inputTrytes) {
 		fmt.Println("Input is not a giota.Trytes. Please provide a valid argument.")
