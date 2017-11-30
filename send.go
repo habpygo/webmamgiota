@@ -51,7 +51,7 @@ func main() {
 		seed += string(trits[y])
 	}
 	seedTrytes, _ := giota.ToTrytes(seed)
-	//provider := "http://node01.iotameetup.nl:14265"
+	//provider := "http://node01.iotameetup.nl:14265" //This is a real node
 	provider := "http://node011.iota.nl:14265" //THIS IS A FAKE NODE
 
 	api := giota.NewAPI(provider, nil)
