@@ -20,8 +20,4 @@ go get -u github.com/habpygo/mamgoiota
 
 ## TODO
 
-<<<<<<< HEAD
 Get ruuVi tag to send to node.
-=======
-Get RuuVi tag to send to tangle
->>>>>>> mamtest
