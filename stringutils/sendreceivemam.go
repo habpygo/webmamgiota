@@ -33,10 +33,6 @@ import (
 func ToMAMTrytes(t string) (tr giota.Trytes) {
 
 	trytes := ""
-<<<<<<< HEAD
-	//TryteValues := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-=======
->>>>>>> mamtest
 	TryteValues := giota.TryteAlphabet
 
 	for i := 0; i < len(t); i++ {
@@ -59,23 +55,11 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 func FromMAMTrytes(inputTrytes giota.Trytes) string {
 
 	outputString := ""
-<<<<<<< HEAD
-	//TryteValues := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	TryteValues := giota.TryteAlphabet
-	// Check if input is a string
-	if IsString(inputTrytes) {
-		fmt.Println("Input is not a giota.Trytes. Please provide a valid argument.")
-	}
-	// Check of we have an even length
-	if len(inputTrytes)%2 != 0 {
-		fmt.Println("Error. Wrong number of trytes")
-=======
 	TryteValues := giota.TryteAlphabet
 	// Check if input is giota.Trytes
 	err := IsValidTrytes(inputTrytes)
 	if err != nil {
 		fmt.Println("Error: ", err)
->>>>>>> mamtest
 	}
 
 	for i := 0; i < len(inputTrytes); i += 2 {
