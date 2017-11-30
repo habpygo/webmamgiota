@@ -45,10 +45,10 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 		secondValue := (asciiValue - firstValue) / 27
 		trytesValue := string(TryteValues[firstValue]) + string(TryteValues[secondValue])
 		trytes = trytes + trytesValue
-		fmt.Println()
-		for iter, number := range t {
-			fmt.Println(iter, number, string(number))
-		}
+		// fmt.Println()
+		// for iter, number := range t {
+		// 	fmt.Println(iter, number, string(number))
+		// }
 	}
 
 	newTrytes := giota.Trytes(trytes)
