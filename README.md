@@ -15,8 +15,5 @@ After which you can download `send-message` from
 $ go get -u github.com/habpygo/mamgoiota
 ```
 
-<<<<<<< HEAD
 # TODO
 Get ruuVi tag to send to node.
-=======
->>>>>>> mamtest
