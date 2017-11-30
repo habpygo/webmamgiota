@@ -35,15 +35,20 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 	trytes := ""
 	TryteValues := giota.TryteAlphabet
 
-	for i := 0; i < len(t); i++ {
-		asciiValue := CharCodeAt(string(t[i]), 0)
+	for _, number := range t {
+		asciiValue := CharCodeAt(string(number), 0)
 		if asciiValue > 255 {
+			//make it a space
 			asciiValue = 32
 		}
 		firstValue := asciiValue % 27
 		secondValue := (asciiValue - firstValue) / 27
 		trytesValue := string(TryteValues[firstValue]) + string(TryteValues[secondValue])
 		trytes = trytes + trytesValue
+		// fmt.Println()
+		// for iter, number := range t {
+		// 	fmt.Println(iter, number, string(number))
+		// }
 	}
 
 	newTrytes := giota.Trytes(trytes)

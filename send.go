@@ -65,7 +65,6 @@ func main() {
 		fmt.Println("error in address: ", address)
 	}
 
-	//Transfer
 	trs := []giota.Transfer{
 		giota.Transfer{
 			Address: address,
@@ -82,6 +81,7 @@ func main() {
 
 	_, trsErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
 	if trsErr != nil {
+		//TODO add a proper error
 		fmt.Println("From send.go: Error while sending Trytes: ", trsErr)
 	}
 }
