@@ -51,16 +51,10 @@ func main() {
 		seed += string(trits[y])
 	}
 	seedTrytes, _ := giota.ToTrytes(seed)
-	fmt.Println("The seed is: ", seedTrytes)
-
-	// Select a random host when all the hosts are actively listening
-	// x := rand.Float64() * 4
-	// y := int(x)
-	//host := nodes[y]
-	provider := "http://node01.iotameetup.nl:14265"
+	//provider := "http://node01.iotameetup.nl:14265"
+	provider := "http://node011.iota.nl:14265"
 
 	api := giota.NewAPI(provider, nil)
-	fmt.Println("api is: ", api)
 
 	// Transform the message to tryte values suitable to send MAM's
 	msg := stringutils.ToMAMTrytes(message)
@@ -82,15 +76,12 @@ func main() {
 	}
 
 	//Uncomment two lines below if you want to check the message on the Cli
-	//stringMessage := stringutils.FromMAMTrytes(msg)
-	//fmt.Println("stringMessage is: ", stringMessage)
-	stringFromPoW, bestPow := giota.GetBestPoW()
+	stringMessage := stringutils.FromMAMTrytes(msg)
+	fmt.Println("stringMessage is: ", stringMessage)
+	_, bestPow := giota.GetBestPoW()
 
-	bdl, trsErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
+	_, trsErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
 	if trsErr != nil {
 		fmt.Println("From send.go: Error while sending Trytes: ", trsErr)
 	}
-	fmt.Println("The bundle is: ", bdl)
-	fmt.Println("stringFromPow is: ", stringFromPoW)
-
 }
