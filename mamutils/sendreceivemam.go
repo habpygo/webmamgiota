@@ -57,7 +57,8 @@ func FromMAMTrytes(inputTrytes giota.Trytes) string {
 
 	outputString := ""
 	TryteValues := giota.TryteAlphabet
-	// Check if input is giota.Trytes
+
+	// Check if input is an even number of giota.Trytes
 	err := IsValidTrytes(inputTrytes)
 	if err != nil {
 		fmt.Println("Error: ", err)
