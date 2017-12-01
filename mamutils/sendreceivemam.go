@@ -19,10 +19,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-//Package stringutils is a utility to create Masked Authenticated Messages (MAM's)
-package stringutils
+//Package mamutils is a utility to create Masked Authenticated Messages (MAM's)
+package mamutils
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 
@@ -73,4 +74,13 @@ func FromMAMTrytes(inputTrytes giota.Trytes) string {
 	}
 	fmt.Println("Output string is: ", outputString)
 	return outputString
+}
+
+//IsValidTrytes checkes wether type and length of Trytes are valid
+func IsValidTrytes(t giota.Trytes) error {
+	if len(t)%2 != 0 {
+		err := errors.New("Wrong number of giota.Trytes; number should be even")
+		return err
+	}
+	return nil
 }

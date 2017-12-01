@@ -27,13 +27,14 @@ import (
 	"time"
 
 	"github.com/iotaledger/giota"
-	"github.com/iotaledger/send-message/stringutils"
+	"github.com/iotaledger/send-message/mamutils"
 )
 
 //These nodes were working during the demo in Amsterdam 25 October, 2017. Currently only node01 is active
 //var nodes = [4]string{"http://node01.iotameetup.nl:14265", "http://node02.iotameetup.nl:14265", "http://node03.iotameetup.nl:14265", "http://node04.iotatoken.nl:14265"}
 
 //Below the address of http://node01.iotameetup.nl:1337/ to where you could send the MAM
+//Perhaps you should find another address
 var address = "XHBQNNJB9ESMBABXJVVRLXTKXTKOINIJCXOEHIMOJIGLOCPFXYCZGVTHK9RBQWECIXGOKLYFMOXRPYBPWVZG9B9LTZ"
 var seed = ""
 
@@ -51,13 +52,13 @@ func main() {
 		seed += string(trits[y])
 	}
 	seedTrytes, _ := giota.ToTrytes(seed)
-	//provider := "http://node01.iotameetup.nl:14265" //This is a real node
-	provider := "http://node011.iota.nl:14265" //THIS IS A FAKE NODE
+	//provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
+	provider := "http://node011.iota.com:14265" //THIS IS A FAKE NODE and will give an error message and is meant to do testing in the terminal
 
 	api := giota.NewAPI(provider, nil)
 
 	// Transform the message to tryte values suitable to send MAM's
-	msg := stringutils.ToMAMTrytes(message)
+	msg := mamutils.ToMAMTrytes(message)
 
 	// Convert the string address to giota address
 	address, err := giota.ToAddress(address)
@@ -75,8 +76,9 @@ func main() {
 	}
 
 	//Uncomment two lines below if you want to check the message on the Cli
-	stringMessage := stringutils.FromMAMTrytes(msg)
-	fmt.Println("stringMessage is: ", stringMessage)
+	//stringMessage := mamutils.FromMAMTrytes(msg)
+	//fmt.Println("stringMessage is: ", stringMessage)
+
 	_, bestPow := giota.GetBestPoW()
 
 	_, trsErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
