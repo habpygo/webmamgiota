@@ -20,7 +20,7 @@ SOFTWARE.
 */
 
 //Package mamutils is a utility to create Masked Authenticated Messages (MAM's)
-package mamutils
+package stringutils
 
 //CharCodeAt constructs a rune so we can get the individual characters from a string
 func CharCodeAt(s string, n int) rune {

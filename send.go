@@ -43,7 +43,7 @@ func main() {
 
 	trits := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-	message := "Test Go implementation of sent.ts!"
+	message := "Test with Golang implementation no. 2!"
 
 	// Select a random seed
 	for i := 0; i < 81; i++ {
@@ -52,8 +52,8 @@ func main() {
 		seed += string(trits[y])
 	}
 	seedTrytes, _ := giota.ToTrytes(seed)
-	//provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
-	provider := "http://node011.iota.com:14265" //THIS IS A FAKE NODE and will give an error message and is meant to do testing in the terminal
+	provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
+	//provider := "http://node011.iota.com:14265" //THIS IS A FAKE NODE and will give an error message and is meant to do testing in the terminal
 
 	api := giota.NewAPI(provider, nil)
 
