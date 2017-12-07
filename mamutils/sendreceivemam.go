@@ -24,7 +24,6 @@ package mamutils
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 
 	"github.com/iotaledger/giota"
@@ -53,7 +52,7 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 }
 
 //FromMAMTrytes converts the MAM from giota.Trytes to a readable string
-func FromMAMTrytes(inputTrytes giota.Trytes) string {
+func FromMAMTrytes(inputTrytes giota.Trytes) (string, error) {
 
 	outputString := ""
 	TryteValues := giota.TryteAlphabet
@@ -61,7 +60,8 @@ func FromMAMTrytes(inputTrytes giota.Trytes) string {
 	// Check if input is an even number of giota.Trytes
 	err := IsValidTrytes(inputTrytes)
 	if err != nil {
-		fmt.Println("Error: ", err)
+		return "", errors.New("wrong trytes input, please try again")
+
 	}
 
 	for i := 0; i < len(inputTrytes); i += 2 {
@@ -74,7 +74,7 @@ func FromMAMTrytes(inputTrytes giota.Trytes) string {
 		outputString = outputString + character
 	}
 	//fmt.Println("Output string is: ", outputString)
-	return outputString
+	return outputString, nil
 }
 
 //IsValidTrytes checkes wether type and length of Trytes are valid
