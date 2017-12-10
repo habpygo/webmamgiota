@@ -52,8 +52,8 @@ func main() {
 		seed += string(trits[y])
 	}
 	seedTrytes, _ := giota.ToTrytes(seed)
-	//provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
-	provider := "http://node011.iota.com:14265" //THIS IS A FAKE NODE and will give an error message and is meant to do testing in the terminal
+	provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
+	//provider := "http://node011.iota.com:14265" //THIS IS A FAKE NODE and will give an error message and is meant to do testing in the terminal
 
 	api := giota.NewAPI(provider, nil)
 
@@ -76,7 +76,11 @@ func main() {
 	}
 
 	//Uncomment two lines below if you want to check the message on the Cli
-	stringMessage := mamutils.FromMAMTrytes(msg)
+	stringMessage, err := mamutils.FromMAMTrytes(msg)
+	if err != nil {
+		//TODO add a proper error
+		fmt.Println("Error message")
+	}
 	fmt.Println("stringMessage is: ", stringMessage)
 
 	_, bestPow := giota.GetBestPoW()

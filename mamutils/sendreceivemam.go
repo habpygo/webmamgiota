@@ -60,7 +60,8 @@ func FromMAMTrytes(inputTrytes giota.Trytes) (string, error) {
 	// Check if input is an even number of giota.Trytes
 	err := IsValidTrytes(inputTrytes)
 	if err != nil {
-		return "", errors.New("wrong trytes input, please try again")
+		err := errors.New("wrong trytes input")
+		return "", err
 
 	}
 
@@ -80,7 +81,7 @@ func FromMAMTrytes(inputTrytes giota.Trytes) (string, error) {
 //IsValidTrytes checkes wether type and length of Trytes are valid
 func IsValidTrytes(t giota.Trytes) error {
 	if len(t)%2 != 0 {
-		err := errors.New("Wrong number of giota.Trytes; number should be even")
+		err := errors.New("wrong number of trytes; number should be even")
 		return err
 	}
 	return nil
