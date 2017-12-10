@@ -58,7 +58,10 @@ func main() {
 	api := giota.NewAPI(provider, nil)
 
 	// Transform the message to tryte values suitable to send MAM's
-	msg := mamutils.ToMAMTrytes(message)
+	msg, err := mamutils.ToMAMTrytes(message)
+	if err != nil {
+		fmt.Println("Error: ", err)
+	}
 
 	// Convert the string address to giota address
 	address, err := giota.ToAddress(address)

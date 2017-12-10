@@ -30,7 +30,7 @@ import (
 )
 
 //ToMAMTrytes checks its validity and casts to giota.Trytes.
-func ToMAMTrytes(t string) (tr giota.Trytes) {
+func ToMAMTrytes(t string) (giota.Trytes, error) {
 
 	trytes := ""
 	TryteValues := giota.TryteAlphabet
@@ -46,9 +46,13 @@ func ToMAMTrytes(t string) (tr giota.Trytes) {
 		trytes = trytes + trytesValue
 	}
 
-	newTrytes := giota.Trytes(trytes)
+	//newTrytes := giota.Trytes(trytes)
+	newTrytes, err := giota.ToTrytes(trytes)
+	if err != nil {
+		return "", err
+	}
 
-	return newTrytes
+	return newTrytes, nil
 }
 
 //FromMAMTrytes converts the MAM from giota.Trytes to a readable string
