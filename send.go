@@ -102,8 +102,8 @@ func main() {
 		fmt.Println("From send.go: Error while sending Trytes: ", txErr)
 	}
 	//Doesn't give tx hash, but bundle hash so it seems
-	txHash := mamBundle.Hash()
+	bdHash := mamBundle.Hash()
 
-	fmt.Println("The Transaction Hash is: ", txHash)
+	fmt.Println("The Bundle Hash is: ", bdHash)
 
 }
