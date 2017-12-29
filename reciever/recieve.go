@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"time"
 
 	"iota/mamgoiota/mamutils"
@@ -69,6 +70,9 @@ func readMessages(provider, address string) []string {
 		panic(err)
 	}
 
+	sort.Slice(trytesResp.Trytes, func(i, j int) bool {
+		return trytesResp.Trytes[i].Timestamp.Unix() < trytesResp.Trytes[j].Timestamp.Unix()
+	})
 	messages := make([]string, len(trytesResp.Trytes))
 	for i, t := range trytesResp.Trytes {
 		//Have to cut off one 9-padding at the end so it can be parsed
