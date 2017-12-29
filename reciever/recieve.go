@@ -53,7 +53,6 @@ func readMessages(provider, address string) []string {
 	}
 
 	req := giota.FindTransactionsRequest{
-		Command:   "findTransactions",
 		Addresses: []giota.Address{iotaAdress},
 	}
 
