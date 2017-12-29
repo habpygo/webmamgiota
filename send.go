@@ -24,6 +24,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 
 	"github.com/iotaledger/giota"
@@ -33,17 +34,23 @@ import (
 //These nodes were working during the demo in Amsterdam 25 October, 2017. Currently only node01 is active
 //var nodes = [4]string{"http://node01.iotameetup.nl:14265", "http://node02.iotameetup.nl:14265", "http://node03.iotameetup.nl:14265", "http://node04.iotatoken.nl:14265"}
 
-//Below the address of http://node01.iotameetup.nl:1337/ to where you could send the MAM
+//Below the address of the message board http://node01.iotameetup.nl:1337/ to where you can send the MAM
 //Perhaps you should find another address
-var address = "XHBQNNJB9ESMBABXJVVRLXTKXTKOINIJCXOEHIMOJIGLOCPFXYCZGVTHK9RBQWECIXGOKLYFMOXRPYBPWVZG9B9LTZ"
-var seed = ""
+//var address = "XHBQNNJB9ESMBABXJVVRLXTKXTKOINIJCXOEHIMOJIGLOCPFXYCZGVTHK9RBQWECIXGOKLYFMOXRPYBPWVZG9B9LTZ"
+var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDD"
+var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano()) // We need this to avoid ending up with the same sequence. Comment out for debugging.
 
 	trits := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-	message := "Test with Golang implementation no. 3!"
+	// Genereate a random number to distinguish the messages
+	number := rand.Float64() * 100
+	message := "Test December 29, 2017 no. "
+	message2 := strconv.FormatFloat(number, 'f', 0, 64)
+
+	message += message2
 
 	// Select a random seed
 	for i := 0; i < 81; i++ {
@@ -52,8 +59,9 @@ func main() {
 		seed += string(trits[y])
 	}
 	seedTrytes, _ := giota.ToTrytes(seed)
-	provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
-	//provider := "http://node011.iota.com:14265" //THIS IS A FAKE NODE and will give an error message and is meant to do testing in the terminal
+	//provider := "https://testnet140.tangle.works"
+	//provider := "http://node01.iotameetup.nl:14265" //This node worked @ December-1-2017; no guarantee that it will work in the future
+	provider := "http://node02.iotatoken.nl:14265"
 
 	api := giota.NewAPI(provider, nil)
 

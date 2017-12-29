@@ -13,14 +13,14 @@ It is assumed that you have Golang installed. You also need to install the Go li
 go get -u github.com/iotaledger/giota
 ```
 
-After that you can download `send-message` to test from
+After that you can download the mamgoiota package to test
 
 ```javascript
 go get -u github.com/habpygo/mamgoiota
 ```
 
 ## How does it work
-
+TODO
 
 Have fun!
 
