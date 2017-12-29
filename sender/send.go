@@ -26,8 +26,9 @@ import (
 	"math/rand"
 	"time"
 
+	"iota/mamgoiota/mamutils"
+
 	"github.com/iotaledger/giota"
-	"github.com/iotaledger/send-message/mamutils"
 )
 
 //These nodes were working during the demo in Amsterdam 25 October, 2017. Currently only node01 is active
@@ -36,7 +37,7 @@ import (
 //Below the address of the message board http://node01.iotameetup.nl:1337/ to where you can send the MAM
 //Perhaps you should find another address
 //var address = "XHBQNNJB9ESMBABXJVVRLXTKXTKOINIJCXOEHIMOJIGLOCPFXYCZGVTHK9RBQWECIXGOKLYFMOXRPYBPWVZG9B9LTZ"
-var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDD"
+var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 
 func main() {
@@ -47,7 +48,7 @@ func main() {
 	// Genereate a random number to distinguish the messages
 	//number := rand.Float64() * 100
 	msgTime := time.Now().UTC().String()
-	message := "This super interesting test message ;-) is for whoever is reading. Send on: "
+	message := "Testmessage By Jonah. Send on: "
 	//message2 := strconv.FormatFloat(number, 'f', 0, 64)
 	//message += message2
 	message += msgTime
