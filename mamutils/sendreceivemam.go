@@ -30,6 +30,7 @@ import (
 )
 
 //ToMAMTrytes checks its validity and casts to giota.Trytes.
+//All ASCII characters greater than number 255 will be converted to a space.
 func ToMAMTrytes(t string) (giota.Trytes, error) {
 
 	trytes := ""
@@ -46,7 +47,6 @@ func ToMAMTrytes(t string) (giota.Trytes, error) {
 		trytes = trytes + trytesValue
 	}
 
-	//newTrytes := giota.Trytes(trytes)
 	newTrytes, err := giota.ToTrytes(trytes)
 	if err != nil {
 		return "", err

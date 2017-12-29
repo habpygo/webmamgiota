@@ -24,7 +24,6 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
 	"time"
 
 	"github.com/iotaledger/giota"
@@ -46,11 +45,12 @@ func main() {
 	trits := "9ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 	// Genereate a random number to distinguish the messages
-	number := rand.Float64() * 100
-	message := "Test December 29, 2017 no. "
-	message2 := strconv.FormatFloat(number, 'f', 0, 64)
-
-	message += message2
+	//number := rand.Float64() * 100
+	msgTime := time.Now().UTC().String()
+	message := "This super interesting test message ;-) is for whoever is reading. Send on: "
+	//message2 := strconv.FormatFloat(number, 'f', 0, 64)
+	//message += message2
+	message += msgTime
 
 	// Select a random seed
 	for i := 0; i < 81; i++ {
@@ -86,19 +86,24 @@ func main() {
 		},
 	}
 
-	//Uncomment two lines below if you want to check the message on the Cli
+	//Uncomment two lines below if you want to check the message on the CLI
 	stringMessage, err := mamutils.FromMAMTrytes(msg)
 	if err != nil {
 		//TODO add a proper error
 		fmt.Println("Error message")
 	}
-	fmt.Println("stringMessage is: ", stringMessage)
+	fmt.Println("The stringMessage is: ", stringMessage)
 
 	_, bestPow := giota.GetBestPoW()
 
-	_, trsErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
-	if trsErr != nil {
+	mamBundle, txErr := giota.Send(api, seedTrytes, 9, trs, 15, bestPow)
+	if txErr != nil {
 		//TODO add a proper error
-		fmt.Println("From send.go: Error while sending Trytes: ", trsErr)
+		fmt.Println("From send.go: Error while sending Trytes: ", txErr)
 	}
+	//Doesn't give tx hash, but bundle hash so it seems
+	txHash := mamBundle.Hash()
+
+	fmt.Println("The Transaction Hash is: ", txHash)
+
 }
