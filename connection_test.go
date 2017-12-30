@@ -1,4 +1,4 @@
-package simpleiota
+package mamgoiota
 
 import (
 	"encoding/json"

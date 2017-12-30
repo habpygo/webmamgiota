@@ -1,4 +1,4 @@
-package simpleiota
+package mamgoiota
 
 import "github.com/iotaledger/giota"
 
