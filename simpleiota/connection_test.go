@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConnectionSend(t *testing.T) {
-	c, err := NewConnection("http://node02.iotatoken.nl:14265", "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9")
+	assert := assert.New(t)
 
-	if err != nil {
-		t.Error(err)
-	}
+	c, err := NewConnection("http://node02.iotatoken.nl:14265", "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9")
+	assert.Nil(err)
 
 	var someJSON struct {
 		Id        int
@@ -24,14 +25,23 @@ func TestConnectionSend(t *testing.T) {
 	someJSON.Timestamp = time.Now()
 
 	stringifiedJSON, err := json.Marshal(someJSON)
-	if err != nil {
-		t.Error(err)
-	}
+	assert.Nil(err)
 
 	id, err := Send("RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY", 0, string(stringifiedJSON), c)
-	if err != nil {
-		t.Error(err)
-	}
+	assert.Nil(err)
 
 	t.Logf("TransactionId: %v\n", id)
+}
+
+func TestConnectionReadTransactions(t *testing.T) {
+	assert := assert.New(t)
+
+	c, err := NewConnection("http://node02.iotatoken.nl:14265", "")
+	assert.Nil(err)
+
+	ts, err := ReadTransactions("RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY", c)
+	assert.Nil(err)
+	for i, tr := range ts {
+		t.Logf("%d. %v: %d IOTA, %v to %v\n", i+1, tr.Timestamp, tr.Value, tr.Message, tr.Recipient)
+	}
 }

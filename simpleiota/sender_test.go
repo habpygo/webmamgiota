@@ -21,9 +21,7 @@ func (f *FakeSender) SendToApi(ts []giota.Transfer) (giota.Bundle, error) {
 func TestSend(t *testing.T) {
 	assert := assert.New(t)
 	recipient, err := giota.NewAddress(giota.NewSeed(), 0, 1)
-	if err != nil {
-		t.Error(err)
-	}
+	assert.Nil(err)
 
 	transactionId, err := Send(string(recipient), 1000, "ABC", &FakeSender{
 		OnSendToApi: func(ts []giota.Transfer) (giota.Bundle, error) {
