@@ -1,9 +1,10 @@
 package simpleiota
 
 import (
-	"iota/mamgoiota/mamutils"
 	"sort"
 	"time"
+
+	"github.com/iotaledger/mamgoiota/mamutils"
 
 	"github.com/iotaledger/giota"
 )

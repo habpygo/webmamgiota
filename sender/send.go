@@ -26,7 +26,7 @@ import (
 	"math/rand"
 	"time"
 
-	"iota/mamgoiota/mamutils"
+	"github.com/iotaledger/mamgoiota/mamutils"
 
 	"github.com/iotaledger/giota"
 )
@@ -48,7 +48,7 @@ func main() {
 	// Genereate a random number to distinguish the messages
 	//number := rand.Float64() * 100
 	msgTime := time.Now().UTC().String()
-	message := "Testmessage By Jonah. Send on: "
+	message := "Testmessage By Harry during a rainy day on: "
 	//message2 := strconv.FormatFloat(number, 'f', 0, 64)
 	//message += message2
 	message += msgTime

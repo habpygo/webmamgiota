@@ -1,7 +1,7 @@
 package simpleiota
 
 import (
-	"iota/mamgoiota/mamutils"
+	"github.com/iotaledger/mamgoiota/mamutils"
 
 	"github.com/iotaledger/giota"
 )

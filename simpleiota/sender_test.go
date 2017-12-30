@@ -2,8 +2,9 @@ package simpleiota
 
 import (
 	"fmt"
-	"iota/mamgoiota/mamutils"
 	"testing"
+
+	"github.com/iotaledger/mamgoiota/mamutils"
 
 	"github.com/stretchr/testify/assert"
 
