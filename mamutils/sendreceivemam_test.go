@@ -28,3 +28,14 @@ func TestFromMAMTrytes(t *testing.T) {
 	assert.Nil(err)
 	assert.EqualValues("Hello World", m)
 }
+
+func TestFromMAMTrytesWithPadding(t *testing.T) {
+	assert := assert.New(t)
+
+	input, err := giota.ToTrytes("RBTC9D9DCDEAFCCDFD9DSC99999")
+	assert.Nil(err)
+
+	m, err := FromMAMTrytes(input)
+	assert.Nil(err)
+	assert.EqualValues("Hello World", m)
+}

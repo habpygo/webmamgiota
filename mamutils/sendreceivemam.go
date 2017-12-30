@@ -58,11 +58,18 @@ func ToMAMTrytes(t string) (giota.Trytes, error) {
 //FromMAMTrytes converts the MAM from giota.Trytes to a readable string
 func FromMAMTrytes(inputTrytes giota.Trytes) (string, error) {
 
+	trimmed := strings.TrimRight(string(inputTrytes), "9")
+	var err error
+	inputTrytes, err = giota.ToTrytes(trimmed)
+	if err != nil {
+		return "", err
+	}
+
 	outputString := ""
 	TryteValues := giota.TryteAlphabet
 
 	// Check if input is an even number of giota.Trytes
-	err := IsValidTrytes(inputTrytes)
+	err = IsValidTrytes(inputTrytes)
 	if err != nil {
 		err := errors.New("wrong trytes input")
 		return "", err
