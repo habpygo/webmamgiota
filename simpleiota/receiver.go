@@ -41,9 +41,7 @@ func ReadTransactions(address string, f ApiFinder) ([]Transaction, error) {
 
 	transactions := make([]Transaction, len(foundTx))
 	for i, t := range foundTx {
-		//TODO create Trim Util
-		//Have to cut off one 9-padding at the end so it can be parsed
-		message, err := mamutils.FromMAMTrytes(t.SignatureMessageFragment[:len(t.SignatureMessageFragment)-1])
+		message, err := mamutils.FromMAMTrytes(t.SignatureMessageFragment)
 		if err != nil {
 			return nil, err
 		}

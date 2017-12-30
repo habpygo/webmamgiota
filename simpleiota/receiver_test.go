@@ -33,7 +33,7 @@ func TestReadTransactions(t *testing.T) {
 			assert.Nil(err)
 			return []giota.Transaction{
 				giota.Transaction{
-					SignatureMessageFragment: message + "9",
+					SignatureMessageFragment: message,
 					Value:     1000,
 					Timestamp: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.Local),
 					Address:   "Recipient",
