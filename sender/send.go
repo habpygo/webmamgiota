@@ -26,7 +26,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/iotaledger/mamgoiota/mamutils"
+	"github.com/iotaledger/mamgoiota/mamutils" // in $GOPATH/src
 
 	"github.com/iotaledger/giota"
 )

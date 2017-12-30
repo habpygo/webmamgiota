@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/iotaledger/mamgoiota/mamutils"
+	"github.com/iotaledger/mamgoiota/mamutils" // in $GOPATH/src
 
 	"github.com/stretchr/testify/assert"
 
