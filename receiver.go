@@ -1,6 +1,7 @@
 package mamgoiota
 
 import (
+	"fmt"
 	"sort"
 	"time"
 
@@ -9,10 +10,6 @@ import (
 	"github.com/iotaledger/giota"
 )
 
-type ApiFinder interface {
-	FindTransactions(giota.FindTransactionsRequest) ([]giota.Transaction, error)
-}
-
 type Transaction struct {
 	Message   string
 	Value     int64
@@ -20,7 +17,11 @@ type Transaction struct {
 	Recipient string
 }
 
-func ReadTransactions(address string, f ApiFinder) ([]Transaction, error) {
+type ApiTransactionsFinder interface {
+	FindTransactions(giota.FindTransactionsRequest) ([]giota.Transaction, error)
+}
+
+func ReadTransactions(address string, f ApiTransactionsFinder) ([]Transaction, error) {
 	iotaAdress, err := giota.ToAddress(address)
 	if err != nil {
 		return nil, err
@@ -54,4 +55,37 @@ func ReadTransactions(address string, f ApiFinder) ([]Transaction, error) {
 	}
 
 	return transactions, nil
+}
+
+type ApiTransactionsReader interface {
+	ReadTransactions([]giota.Trytes) ([]giota.Transaction, error)
+}
+
+func ReadTransaction(transactionID string, r ApiTransactionsReader) (Transaction, error) {
+	tID, err := giota.ToTrytes(transactionID)
+	if err != nil {
+		return Transaction{}, err
+	}
+
+	txs, err := r.ReadTransactions([]giota.Trytes{tID})
+	if len(txs) != 1 {
+		return Transaction{}, fmt.Errorf("Requested 1 Transaction but got %d", len(txs))
+	}
+	if err != nil {
+		return Transaction{}, err
+	}
+
+	tx := txs[0]
+	message, err := mamutils.FromMAMTrytes(tx.SignatureMessageFragment)
+	if err != nil {
+		return Transaction{}, err
+	}
+	transaction := Transaction{
+		Message:   message,
+		Value:     tx.Value,
+		Timestamp: tx.Timestamp,
+		Recipient: string(tx.Address),
+	}
+
+	return transaction, nil
 }

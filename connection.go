@@ -32,6 +32,10 @@ func (c *Connection) FindTransactions(req giota.FindTransactionsRequest) ([]giot
 	if err != nil {
 		return nil, err
 	}
-	txs, err := c.api.GetTrytes(found.Hashes)
-	return txs.Trytes, err
+	return c.ReadTransactions(found.Hashes)
+}
+
+func (c *Connection) ReadTransactions(tIDs []giota.Trytes) ([]giota.Transaction, error) {
+	found, err := c.api.GetTrytes(tIDs)
+	return found.Trytes, err
 }

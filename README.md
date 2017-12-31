@@ -40,9 +40,10 @@ func main(){
 ```
 After sending, you find your transaction here https://thetangle.org giving the TransactionId
 
-If you want to transfer value aswell call the send method like this: ```Send("the receiving address", 100, "your stringified message", c)```.
+If you want to transfer value aswell (here 100 IOTA) call the send method like this: ```Send("the receiving address", 100, "your stringified message", c)```.
 
 #### Read data from the IOTA tangle
+Reading all transaction received by a certain adress:
 ```go
 import "github.com/iotaledger/mamgoiota"
 
@@ -64,6 +65,26 @@ func main(){
 The seed can be ommitted here, since reading does not require an account
 
 
+
+Reading a special transaction by transactionID:
+```go
+import "github.com/iotaledger/mamgoiota"
+
+func main(){
+    c, err := NewConnection("someNodeURL", "")
+    if err != nil{
+        panic(err)
+    }
+
+    tx, err := ReadTransaction("Some transactionID", c)
+    if err != nil{
+        panic(err)
+    }
+    t.Logf("%v: %d IOTA, %v to %v\n", tx.Timestamp, tx.Value, tx.Message, tx.Recipient)
+}
+```
+
+
 #### Examples
 Check out our [example folder](/example) for a send and a receive example.
 
@@ -80,7 +101,8 @@ If the Node is offline try another one, mentioned above.
 ### TODOs
 - [ ] GoDoc
 - [ ] Travis
-- [ ] More Read options f.e. Read by TransactionId
+- [ ] More Read options
+- [X] Read by TransactionId
 
 
 

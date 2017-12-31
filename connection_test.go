@@ -45,3 +45,13 @@ func TestConnectionReadTransactions(t *testing.T) {
 		t.Logf("%d. %v: %d IOTA, %v to %v\n", i+1, tr.Timestamp, tr.Value, tr.Message, tr.Recipient)
 	}
 }
+func TestConnectionReadSingleTransaction(t *testing.T) {
+	assert := assert.New(t)
+
+	c, err := NewConnection("http://node02.iotatoken.nl:14265", "")
+	assert.Nil(err)
+
+	tx, err := ReadTransaction("QFLSB9PFUYYCKUJ9JWIIHVQPZOOOQPDXMCGWAZCGLCBTODRJJQHZ9BIUEBGMNDFYOJMFGPQOUKBJ99999", c)
+	assert.Nil(err)
+	t.Logf("%v: %d IOTA, %v to %v\n", tx.Timestamp, tx.Value, tx.Message, tx.Recipient)
+}
