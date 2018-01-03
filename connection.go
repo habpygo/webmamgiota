@@ -2,6 +2,7 @@ package mamgoiota
 
 import "github.com/iotaledger/giota"
 
+//NewConnection establishes a connection with the given provider and the seed
 func NewConnection(provider, seed string) (*Connection, error) {
 	return &Connection{
 		api:      giota.NewAPI(provider, nil),

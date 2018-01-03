@@ -1,5 +1,30 @@
 # mamgoiota
 
+Small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang.
+
+This project is still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs.
+
+## Install
+
+It is assumed that you have Golang installed. You also need to install the Go library API for IOTA which you can download at:
+
+```javascript
+go get -u github.com/iotaledger/giota
+```
+
+After that you can download the mamgoiota package.
+
+```javascript
+go get -u github.com/habpygo/mamgoiota
+```
+
+To be able to do testing and assertions you have to install the `stretchr` package
+
+```javascript
+go get -u github.com/stretchr/testify
+```
+
+
 ## Sending MAMs to the IOTA tangle with Go
 
 ### API
@@ -53,7 +78,7 @@ func main(){
         panic(err)
     }
 
-    ts, err := ReadTransactions("Receiving Adress", c)
+    ts, err := ReadTransactions("Receiving Address", c)
     if err != nil{
         panic(err)
     }
@@ -88,9 +113,9 @@ func main(){
 #### Examples
 Check out our [example folder](/example) for a send and a receive example.
 
-To run this edit the `sender/send.go` and `receiver/receive.go` file, set the correct provider and address and you are ready to run.
+To run this, cd into the example folder and edit the `sender/send.go` and `receiver/receive.go` file, set the correct provider and address and you are ready to run.
 
-Start the receiver first: `$ go run receiver/receive.go`. He checks every 5 seconds if there are new messages, until cancelled.
+Start the receiver first: `$ go run receiver/receive.go`. It will check for new messages every 5 seconds, until cancelled.
 
 Then start the sender: `$ go run sender/send.go`.
 
@@ -101,6 +126,8 @@ If the Node is offline try another one, mentioned above.
 ### TODOs
 - [ ] GoDoc
 - [ ] Travis
+- [ ] Make web-app
+- [ ] Read sensor data, e.g. RuuVi tag
 - [ ] More Read options
 - [X] Read by TransactionId
 

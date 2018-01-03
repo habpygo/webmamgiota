@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/iotaledger/mamgoiota/mamutils" // in $GOPATH/src
+	"github.com/iotaledger/mamgoiota/mamutils"
 
 	"github.com/iotaledger/giota"
 	"github.com/stretchr/testify/assert"
