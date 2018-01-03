@@ -36,6 +36,9 @@ func main() {
 	}
 
 	pastTransactions, err := mamgoiota.ReadTransactions(address, c)
+	if err != nil {
+		panic(err)
+	}
 
 	for i, m := range pastTransactions[:] {
 		fmt.Printf("%d. %v. Value of transaction is %v\n", i+1, m.Message, m.Value)
