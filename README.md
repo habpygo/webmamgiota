@@ -119,6 +119,8 @@ Start the receiver first: `$ go run receiver/receive.go`. It will check for new 
 
 Then start the sender: `$ go run sender/send.go`.
 
+You can also read all the past transactions, i.e. messages + value,  at the address: `go run history/history.go`.
+
 If you pick up the transaction hash from the Terminal output and paste it into the input field on the site https://thetangle.org you find your transaction.
 
 If the Node is offline try another one, mentioned above.
