@@ -8,10 +8,6 @@ import (
 	"path/filepath"
 )
 
-type MaMWebApp struct {
-	mampage *controllers.MamSetup
-}
-
 //Ld is layout definition
 var Ld string
 
@@ -21,10 +17,7 @@ var Td string
 var Layout string
 
 func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string, data interface{}) {
-	if templateName == "index.html" {
-		Ld = filepath.Join("web", "templates", "layout-login.html")
-		Layout = "layout-login"
-	} else {
+	if templateName == "layout.html" {
 		Ld = filepath.Join("web", "templates", "layout.html")
 		Layout = "layout"
 	}

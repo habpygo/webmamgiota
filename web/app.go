@@ -8,21 +8,14 @@ import (
 )
 
 //Serve will listen for and serve up data on port 3000
-func Serve(mammessageboard *controllers.MamSetup) {
+func Serve(mammessageboard *controllers.appcontroller) {
 	fs := http.FileServer(http.Dir("web/assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
-	//login handlers
-	http.HandleFunc("/index.html", mammessageboard.IndexHandler)
-	http.HandleFunc("/login", mammessageboard.LoginHandler)
-
-	http.HandleFunc("/tryout.html", mammessageboard.TryoutHandler)
-
-	//inspection and query handlers
 	http.HandleFunc("/queryallmessages.html", mammessageboard.AllMessagesHandler)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/index.html", http.StatusTemporaryRedirect)
+		http.Redirect(w, r, "/queryallmessages.html", http.StatusTemporaryRedirect)
 	})
 
 	fmt.Println("Listening (http://localhost:3000/) ...")
