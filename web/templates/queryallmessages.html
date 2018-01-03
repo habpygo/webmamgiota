@@ -1,0 +1,43 @@
+{{define "title"}}History Page{{end}} {{define "body"}}
+
+
+<div class="table_container">
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-12 blocklimstext" style="text-align:center">
+            <div>
+                <h1>Blockchain history for keys</h1>
+            </div>
+
+            <div class="wrap">
+                <table class="head">
+                    <tr class="tr_background">
+                        <th>Message number</th>
+                        <th>Message</th>
+                        <th>Value</th>
+                        <th>Time stamp</th>
+                    </tr>
+                </table>
+
+                <div class="inner_table">
+                    <table>
+                        {{ range .}}
+                        <tr>
+                            <td>{{.mnumber}}</td>
+                            <td>{{.Message}}</td>
+                            <td>{{.Value}}</td>
+                            <td>{{.TimeStamp}}</td>
+                        </tr>
+                        {{end}}
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+{{end}}

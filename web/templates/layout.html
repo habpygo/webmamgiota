@@ -1,0 +1,45 @@
+{{define "layout"}}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DappDevelopment - {{template "title"}}</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/assets/css/IoT.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+
+<div class="jumbotron">
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="container">
+        <div class="row row-header">
+            <div class="col-xs-12 col-sm-3">
+                <img src="/assets/images/capno1.png" class="img-responsive">
+            </div>
+            <div class="col-xs-12 col-sm-6" style="color: rgb(200, 27, 27)">
+                <h2>Message Board</h2>
+                <h3>- IOTA Tangle Information -</h3>
+                <h4 style="color:lemonchiffon">Masked Authenticated Messages</h4>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<body>
+    {{template "body" .}}
+</body>
+
+
+</html>
+{{end}}

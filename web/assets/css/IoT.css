@@ -1,0 +1,306 @@
+html,
+body {
+    padding: 0;
+    background-color: #eeeeee;
+    /* #fff */
+}
+
+
+/* The Dapp logo */
+
+main.container {
+    margin-bottom: 100px;
+}
+
+.row-full {
+    width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
+#graph {
+    border: solid black 1px;
+}
+
+div.hr {
+    background: #2170B3 no-repeat scroll center;
+    margin-left: 15em;
+    margin-right: 15em;
+    width: 50em;
+    height: 2px
+}
+
+hr {
+    border: 0;
+    clear: both;
+    display: block;
+    background-color: #2170B3;
+    /*#123f7f */
+    height: 1px;
+}
+
+
+/* color: #58B958; */
+
+.postal_green {
+    color: #A28E8E;
+}
+
+.nav .navbar-brand>img {
+    display: inline-block;
+    height: 150%;
+    margin-right: 10px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #123f7f;
+    background-color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    color: #2170B3;
+    background-color: #92EDE9;
+}
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header,
+.content,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.querydiv {
+    text-align: right;
+}
+
+.loginpage {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidetext {
+    left: 35%;
+    margin: auto;
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    width: 50%;
+}
+
+.iotblocktext {
+    color: #2170B3;
+}
+
+.blocklimstext {
+    color: #2170B3;
+    /* # 1b5c9e*/
+    /* #742538   */
+}
+
+.blocklimsordinarytext {
+    color: #2170B3;
+    /* #1b5c9e*/
+}
+
+.blocklimslabel {
+    color: #2170B3;
+    /*#1a8000 */
+    text-align: left;
+}
+
+.blocklimswhite {
+    color: #fff;
+}
+
+.scroll {
+    background-color: #39B4AB;
+    overflow: scroll;
+}
+
+.scroll_transport {
+    background-color: #58B958;
+    overflow: scroll;
+}
+
+.scroll_lab {
+    background-color: #22aaff;
+    overflow: scroll;
+}
+
+.wrap {
+    width: 100%;
+}
+
+.wrap table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.inner_table {
+    font-size: 18px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.tr_background {
+    background-color: #39B4AB;
+    color: #0055ff;
+}
+
+td,
+th {
+    border: 1px solid #90b52c;
+    /*#39B4AB */
+    text-align: center;
+    padding: 6px;
+    word-wrap: break-word;
+}
+
+th {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+a {
+    width: 100%;
+    color: #1e1e81;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    color: #1e1e81;
+}
+
+tr:nth-child(odd) {
+    background-color: #2170B3;
+    /* #1b8c96 */
+    /* #123f7f */
+    /* #1b8c96 */
+    color: lemonchiffon;
+}
+
+.centerTable {
+    margin: 0 auto;
+}
+
+.table_wrapper {
+    width: 100%;
+}
+
+.table_content {
+    height: 600px;
+    overflow: scroll;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.table_container {
+    width: auto;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 50px;
+}
+
+.table_small {
+    width: auto;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 50px;
+}
+
+.textarea_scroll {
+    overflow-y: scroll;
+}
+
+
+/* Trying to get the divs lined up like I want */
+
+#outer {
+    width: 100%;
+}
+
+#inner {
+    display: inline;
+    margin: 0 auto;
+}
+
+
+/* Custom page header */
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow>hr {
+    margin: 30px 0;
+}
+
+
+/* Main marketing message and sign up button */
+
+.jumbotron {
+    background-color: #2170B3;
+    /* b3b3b3 */
+    /*#fff */
+    text-align: center;
+    padding-top: 30px;
+    /*75px*/
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+}
+
+.content {
+    margin: 40px 0;
+}
+
+
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 840px) {
+    .container {
+        max-width: 860px;
+    }
+    /* Remove the padding we set earlier */
+    .header,
+    .content,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-top: 2;
+        border-bottom: 2;
+    }
+}
