@@ -6,7 +6,13 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/giota/mamgoiota"
 )
+
+type Application struct {
+	Mamboard *mamgoiota.Connection
+}
 
 //Ld is layout definition
 var Ld string
