@@ -1,8 +1,9 @@
 # mamgoiota
 
-Small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang.
+This is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang.
 
 This project is still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs.
+Name of the project will change in `webmamgoiota` as we want to have a nice interface to send, receive and get a list of past messages send to a particular address.
 
 ## Install
 
@@ -108,9 +109,13 @@ func main(){
     t.Logf("%v: %d IOTA, %v to %v\n", tx.Timestamp, tx.Value, tx.Message, tx.Recipient)
 }
 ```
+#### Examples webmamgoiota
+1. From the root run `go run main.go`
+2. Open your webbrowser and point to `http://localhost:3000` and you should see all messages listed, sorted from youngest to oldest.
 
+#### Examples mamgoiota
+These examples won't work anymore on this site. Hopefully we will manage to get this workin with the `iotaledger/iota.lib.go` repository on GitHub.
 
-#### Examples
 Check out our [example folder](/example) for a send and a receive example.
 
 To run this, cd into the example folder and edit the `sender/send.go` and `receiver/receive.go` file, set the correct provider and address and you are ready to run.
