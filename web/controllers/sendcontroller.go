@@ -19,29 +19,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package main
+package controllers
 
 import (
 	"fmt"
+	"net/http"
+	"time"
 
-	"github.com/iotaledger/mamgoiota"
+	"github.com/giota/mamgoiota"
+	"github.com/iotaledger/mamgoiota/connections"
 )
 
-func main() {
-	address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
-	provider := "http://node02.iotatoken.nl:14265"
-	c, err := mamgoiota.NewConnection(provider, "")
+var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
+var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
+
+func SendHandler(w http.ResponseWriter, r *http.Request) {
+	//"https://testnet140.tangle.works"
+	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	if err != nil {
 		panic(err)
 	}
 
-	pastTransactions, err := mamgoiota.ReadTransactions(address, c)
+	msgTime := time.Now().UTC().String()
+	message := "Testmessage by hopefully you ;-) on: " + msgTime
+
+	id, err := mamgoiota.Send(address, 0, message, c)
 	if err != nil {
 		panic(err)
 	}
 
-	for i, m := range pastTransactions[:] {
-		fmt.Printf("%d. %v. Value of transaction is %v\n", i+1, m.Message, m.Value)
-	}
-
+	fmt.Printf("Sent Transaction: %v\n", id)
 }

@@ -1,4 +1,4 @@
-package mamgoiota
+package connections
 
 import (
 	"fmt"

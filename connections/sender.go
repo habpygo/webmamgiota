@@ -1,4 +1,4 @@
-package mamgoiota
+package connections
 
 import (
 	"github.com/iotaledger/mamgoiota/mamutils"

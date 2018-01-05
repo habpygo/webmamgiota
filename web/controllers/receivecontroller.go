@@ -19,19 +19,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-package main
+package controllers
 
 import (
 	"fmt"
+	"net/http"
 	"time"
 
-	"github.com/iotaledger/mamgoiota"
+	"github.com/giota/mamgoiota"
+	"github.com/iotaledger/mamgoiota/connections"
 )
 
-func main() {
+func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	provider := "http://node02.iotatoken.nl:14265"
-	c, err := mamgoiota.NewConnection(provider, "")
+	c, err := connections.NewConnection(provider, "")
 	if err != nil {
 		panic(err)
 	}

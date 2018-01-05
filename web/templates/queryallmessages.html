@@ -2,10 +2,10 @@
 
 
 <div class="table_container">
-    <div class="row row-content">
+    <div class="row row-content" action="queryallmessages.html" method="post">
         <div class="col-xs-12 col-sm-12 blocklimstext" style="text-align:center">
             <div>
-                <h1>Blockchain history for keys</h1>
+                <h1>IOTA tangle history</h1>
             </div>
 
             <div class="wrap">
@@ -22,7 +22,7 @@
                     <table>
                         {{ range .}}
                         <tr>
-                            <td>{{.mnumber}}</td>
+                            <td>{{.Number}}</td>
                             <td>{{.Message}}</td>
                             <td>{{.Value}}</td>
                             <td>{{.TimeStamp}}</td>

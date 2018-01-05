@@ -6,12 +6,9 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-
-	"github.com/giota/mamgoiota"
 )
 
 type Application struct {
-	Mamboard *mamgoiota.Connection
 }
 
 //Ld is layout definition
@@ -23,7 +20,8 @@ var Td string
 var Layout string
 
 func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string, data interface{}) {
-	if templateName == "layout.html" {
+
+	if templateName == "queryallmessages.html" {
 		Ld = filepath.Join("web", "templates", "layout.html")
 		Layout = "layout"
 	}
