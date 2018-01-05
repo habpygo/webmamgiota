@@ -24,7 +24,6 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/giota/mamgoiota"
 	"github.com/iotaledger/mamgoiota/connections"
@@ -40,8 +39,8 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	msgTime := time.Now().UTC().String()
-	message := "Testmessage by hopefully you ;-) on: " + msgTime
+	//	msgTime := time.Now().UTC().String()
+	message := "Testmessage to assert that all is good" //+ msgTime
 
 	id, err := mamgoiota.Send(address, 0, message, c)
 	if err != nil {

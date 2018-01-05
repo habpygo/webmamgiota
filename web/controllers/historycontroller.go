@@ -49,7 +49,7 @@ func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
 
 	//debug
 	for i, m := range messageCollection[:] {
-		fmt.Printf("%d. %v. Value is %v\n", i+1, m.Message, m.Value)
+		fmt.Printf("%d. %v. Value is %v. Timestamp is %v\n", i+1, m.Message, m.Value, m.Timestamp)
 	}
 	renderTemplate(w, r, "queryallmessages.html", collectedMessages)
 
