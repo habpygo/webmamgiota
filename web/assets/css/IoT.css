@@ -1,7 +1,7 @@
 html,
 body {
     padding: 0;
-    background-color: #eeeeee;
+    background-color: #00786B;
     /* #fff */
 }
 
@@ -265,7 +265,7 @@ tr:nth-child(odd) {
 /* Main marketing message and sign up button */
 
 .jumbotron {
-    background-color: #2170B3;
+    background-color: #00786B; /* #2170B3*/
     /* b3b3b3 */
     /*#fff */
     text-align: center;
