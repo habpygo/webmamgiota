@@ -1,0 +1,40 @@
+{{define "title"}}Send MAM Request{{end}} {{define "body"}}
+<div class="container">
+    {{ if .Response }} {{ if .Success }}
+    <div class="alert alert-success" role="alert">
+        Successful request, transaction ID: {{ .TransactionID }}
+    </div>
+    {{ else }}
+    <div class="alert alert-danger" role="alert">
+        Unable to submit the request, retry later.
+    </div>
+    {{ end }} {{ end }}
+</div>
+
+<div class="container">
+    <div class="col-xs-12 col-sm-12">
+        <h3 class="blocklimstext" style="text-align: center">Tangle Request</h3>
+        <h1 class="blocklimstext" style="text-align: center; padding-bottom: 20px">Write a new messgage to the tangle</h1>
+        <form class="form-horizontal" action="sendmessage.html" method="post">
+
+                <div class="form-group blocklimslabel">
+                        <label>Text message</label>
+                        <input type="text" class="form-control" id="message" placeholder="message" name="message">
+                </div>
+
+                <div class="form-group blocklimslabel">
+                        <label>Value IOTAs (leave blank if account has no value!)</label>
+                        <input type="text" class="form-control" id="value" placeholder="value" name="value">
+                </div>
+
+    <hr/>
+            <div class="form-group blocklimslabel">
+                <div style="text-align: center">
+                    <input type="hidden" name="submitted" value="true">
+                    <button type="submit" class="btn btn-info">Send message</button>
+                </div>
+            </div>
+         </form>
+    </div>
+</div>
+{{end}}

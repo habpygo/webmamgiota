@@ -10,7 +10,7 @@ import (
 	"github.com/iotaledger/mamgoiota/connections"
 )
 
-//MaMBoardSetup is the data to be exposed in the web-app
+//MAMBoardSetup is the data to be exposed in the web-app
 //It's the same as Transaction type
 type MAMBoardSetup struct {
 	Message   string

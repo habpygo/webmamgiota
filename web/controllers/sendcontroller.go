@@ -24,6 +24,7 @@ package controllers
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
 	"github.com/iotaledger/mamgoiota/connections"
@@ -33,6 +34,16 @@ var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQ
 var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 
 func SendHandler(w http.ResponseWriter, r *http.Request) {
+	data := &struct {
+		TransactionID string
+		TimeStamp     string
+		Success       bool
+		Response      bool
+	}{
+		TransactionID: "",
+		Success:       false,
+		Response:      false,
+	}
 	//"https://testnet140.tangle.works"
 	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
@@ -40,13 +51,29 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	/* WRITE YOUR MESSAGE HERE */
-	message := "Testmessage to assert that all is good" //+ msgTime
+	if r.FormValue("submitted") == "true" {
+		newMamMessage := MAMBoardSetup{
+			Message: r.FormValue("message"),
+		}
+		value, err := strconv.ParseInt(r.FormValue("value"), 10, 64)
+		if err != nil {
+			panic(err)
+		}
+		newMamMessage.Value = value
 
-	id, err := mamgoiota.Send(address, 0, message, c)
-	if err != nil {
-		panic(err)
+		/* WRITE YOUR MESSAGE HERE */
+		//message := "Test text message from web-app to assert that all is good" //+ msgTime
+
+		//we use mamgoiota here to test whether the mamgoiota folder in the library is still working
+		//otherwise use connections.Send() like connections.NewConnection() above
+		id, err := mamgoiota.Send(address, newMamMessage.Value, newMamMessage.Message, c)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Printf("Sent transaction: %v\n", id)
+
+		//renderTemplate(w, r, "sendmessage.html", data)
 	}
-
-	fmt.Printf("Sent Transaction: %v\n", id)
+	renderTemplate(w, r, "sendmessage.html", data)
 }

@@ -14,8 +14,11 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 	fs := http.FileServer(http.Dir("web/assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
+	//web-app starts here
 	http.HandleFunc("/queryallmessages.html", controllers.AllMessagesHandler)
-	//http.HandleFunc("/", controllers.AllMessagesHandler)
+
+	//send message
+	http.HandleFunc("/sendmessage.html", controllers.SendHandler)
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("HandleFunc will redirect the / to queryallmessages.html")
