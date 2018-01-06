@@ -45,8 +45,8 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		Response:      false,
 	}
 	//"https://testnet140.tangle.works"
-	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
-	c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
+	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)
 	}
