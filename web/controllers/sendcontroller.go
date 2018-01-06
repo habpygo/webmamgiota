@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/giota/mamgoiota"
+	mamgoiota "github.com/giota/mamgoiota/connections"
 	"github.com/iotaledger/mamgoiota/connections"
 )
 
@@ -34,12 +34,13 @@ var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERO
 
 func SendHandler(w http.ResponseWriter, r *http.Request) {
 	//"https://testnet140.tangle.works"
-	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)
 	}
 
-	//	msgTime := time.Now().UTC().String()
+	/* WRITE YOUR MESSAGE HERE */
 	message := "Testmessage to assert that all is good" //+ msgTime
 
 	id, err := mamgoiota.Send(address, 0, message, c)
