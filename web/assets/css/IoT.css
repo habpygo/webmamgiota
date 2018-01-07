@@ -45,13 +45,6 @@ hr {
     height: 1px;
 }
 
-
-/* color: #58B958; */
-
-.postal_green {
-    color: #A28E8E;
-}
-
 .nav .navbar-brand>img {
     display: inline-block;
     height: 150%;
@@ -103,8 +96,8 @@ hr {
     width: 50%;
 }
 
-.iotblocktext {
-    color: #2170B3;
+.iotablocktext {
+    color: #222222;
 }
 
 .blocklimstext {

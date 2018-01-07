@@ -21,7 +21,7 @@ var Layout string
 
 func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string, data interface{}) {
 
-	if templateName == "queryallmessages.html" {
+	if templateName == "sendmessage.html" {
 		Ld = filepath.Join("web", "templates", "layout.html")
 		Layout = "layout"
 	}

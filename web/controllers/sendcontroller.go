@@ -25,6 +25,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"time"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
 	"github.com/iotaledger/mamgoiota/connections"
@@ -33,17 +34,27 @@ import (
 var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 
+//MAMBoardSetup is the data to be exposed in the web-app
+//It's the same as Transaction type
+type MAMBoardSetup struct {
+	Message   string
+	Value     int64
+	Timestamp time.Time
+	Recipient string
+	Number    int
+}
+
 func SendHandler(w http.ResponseWriter, r *http.Request) {
-	data := &struct {
-		TransactionID string
-		TimeStamp     string
-		Success       bool
-		Response      bool
-	}{
-		TransactionID: "",
-		Success:       false,
-		Response:      false,
-	}
+	// data := &struct {
+	// 	TransactionID string
+	// 	TimeStamp     string
+	// 	Success       bool
+	// 	Response      bool
+	// }{
+	// 	TransactionID: "",
+	// 	Success:       false,
+	// 	Response:      false,
+	// }
 	//"https://testnet140.tangle.works"
 	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
@@ -75,5 +86,5 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		//renderTemplate(w, r, "sendmessage.html", data)
 	}
-	renderTemplate(w, r, "sendmessage.html", data)
+	renderTemplate(w, r, "sendmessage.html", nil)
 }
