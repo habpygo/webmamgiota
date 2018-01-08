@@ -30,6 +30,7 @@ import (
 	"github.com/iotaledger/mamgoiota/connections"
 )
 
+//ReceiveHandler checks for new messages every n seconds
 func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	provider := "http://node02.iotatoken.nl:14265"
@@ -38,8 +39,11 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
+	var n time.Duration
+	n = 5
+
 	var lastTransactions []mamgoiota.Transaction
-	doEvery(5*time.Second, func(t time.Time) {
+	doEvery(n*time.Second, func(t time.Time) {
 		fmt.Println("Looking for new messages")
 
 		newTransactions, err := mamgoiota.ReadTransactions(address, c)

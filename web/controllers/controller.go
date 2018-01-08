@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 )
 
+//Application is the main app to be served
 type Application struct {
 }
 
@@ -17,6 +18,7 @@ var Ld string
 //Td is template definition
 var Td string
 
+//Layout is the accumulated web page layout
 var Layout string
 
 func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string, data interface{}) {
