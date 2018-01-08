@@ -29,7 +29,7 @@ main.container {
 }
 
 div.hr {
-    background: #2170B3 no-repeat scroll center;
+    background: #193FB2 no-repeat scroll center; /*2170B3*/
     margin-left: 15em;
     margin-right: 15em;
     width: 50em;
@@ -40,7 +40,7 @@ hr {
     border: 0;
     clear: both;
     display: block;
-    background-color: #2170B3;
+    background-color: #193FB2;
     /*#123f7f */
     height: 1px;
 }

@@ -45,16 +45,16 @@ type MAMBoardSetup struct {
 }
 
 func SendHandler(w http.ResponseWriter, r *http.Request) {
-	// data := &struct {
-	// 	TransactionID string
-	// 	TimeStamp     string
-	// 	Success       bool
-	// 	Response      bool
-	// }{
-	// 	TransactionID: "",
-	// 	Success:       false,
-	// 	Response:      false,
-	// }
+	data := &struct {
+		TransactionID string
+		TimeStamp     string
+		Success       bool
+		Response      bool
+	}{
+		TransactionID: "",
+		Success:       false,
+		Response:      false,
+	}
 	//"https://testnet140.tangle.works"
 	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
@@ -70,6 +70,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			panic(err)
 		}
+
 		newMamMessage.Value = value
 
 		/* WRITE YOUR MESSAGE HERE */
@@ -86,5 +87,5 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		//renderTemplate(w, r, "sendmessage.html", data)
 	}
-	renderTemplate(w, r, "sendmessage.html", nil)
+	renderTemplate(w, r, "sendmessage.html", data)
 }
