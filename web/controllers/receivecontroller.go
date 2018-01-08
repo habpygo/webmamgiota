@@ -39,11 +39,11 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	var n time.Duration
-	n = 5
+	// var n time.Duration
+	// n = 5
 
 	var lastTransactions []mamgoiota.Transaction
-	doEvery(n*time.Second, func(t time.Time) {
+	doEvery(5*time.Second, func(t time.Time) {
 		fmt.Println("Looking for new messages")
 
 		newTransactions, err := mamgoiota.ReadTransactions(address, c)

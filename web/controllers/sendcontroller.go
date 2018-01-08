@@ -25,7 +25,6 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
-	"time"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
 )
@@ -36,16 +35,6 @@ var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQ
 
 //var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
-
-//MAMBoardSetup is the data to be transferred by bundles and exposed in the web-app
-//It's different from Transfer type
-type MAMBoardSetup struct {
-	Message   string
-	Value     int64
-	Timestamp time.Time
-	Recipient string
-	Number    int
-}
 
 //SendHandler retrieves the message values from the webpage and sends it to the address given
 func SendHandler(w http.ResponseWriter, r *http.Request) {

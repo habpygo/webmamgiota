@@ -16,15 +16,17 @@
                 <table class="head">
                     <colgroup>
                         <col style="width:10%">
-                        <col style="width:55%">
+                        <col style="width:45%">
                         <col style="width:10%">
                         <col style="width:25%">
+                        <col style="width:10%">
                     </colgroup>
                     <tr class="tr_background">
                         <th>Message number</th>
                         <th>Message</th>
-                        <th>Value</th>
+                        <th>Sent value</th>
                         <th>Time stamp</th>
+                        <th>Balance</th>
                     </tr>
                     
                 </table>
@@ -33,9 +35,10 @@
                     <table>
                             <colgroup>
                                 <col style="width:10%">
-                                <col style="width:55%">
+                                <col style="width:45%">
                                 <col style="width:10%">
                                 <col style="width:25%">
+                                <col style="width:10%">
                             </colgroup>
                         {{ range .}}
                         <tr>
@@ -43,6 +46,7 @@
                             <td>{{.Message}}</td>
                             <td>{{.Value}}</td>
                             <td>{{.Timestamp}}</td>
+                            <td>{{.Balances}}</td>
                         </tr>
                         {{end}}
                     </table>
