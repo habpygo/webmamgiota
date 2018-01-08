@@ -28,7 +28,6 @@ import (
 	"time"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
-	"github.com/iotaledger/mamgoiota/connections"
 )
 
 //var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
@@ -38,8 +37,8 @@ var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQ
 //var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 
-//MAMBoardSetup is the data to be exposed in the web-app
-//It's the same as Transaction type
+//MAMBoardSetup is the data to be transferred by bundles and exposed in the web-app
+//It's different from Transfer type
 type MAMBoardSetup struct {
 	Message   string
 	Value     int64
@@ -61,7 +60,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		Response:      false,
 	}
 	//"https://testnet140.tangle.works"
-	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)
@@ -90,7 +89,6 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		fmt.Printf("Sent transaction: %v\n", id)
 
-		//renderTemplate(w, r, "sendmessage.html", data)
 	}
 	renderTemplate(w, r, "sendmessage.html", data)
 }

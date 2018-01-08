@@ -9,16 +9,6 @@ import (
 	"github.com/iotaledger/mamgoiota/connections"
 )
 
-//MAMBoardSetup is the data to be exposed in the web-app
-//It's the same as Transaction type
-// type MAMBoardSetup struct {
-// 	Message   string
-// 	Value     int64
-// 	Timestamp time.Time
-// 	Recipient string
-// 	Number    int
-// }
-
 //AllMessagesHandler will collect all the mesages and puts it into the messageCollection slice
 func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("AllMessagesHandler is entered")
