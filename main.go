@@ -9,7 +9,6 @@ import (
 
 func main() {
 
-	//msgwebpage := &controllers.Application{}
 	msgwebpage := &controllers.MAMBoardSetup{}
 	fmt.Println("We enter main()")
 	web.Serve(msgwebpage)

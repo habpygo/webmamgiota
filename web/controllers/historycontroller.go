@@ -26,8 +26,8 @@ type MAMBoardSetup struct {
 func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("AllMessagesHandler is entered")
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
-	address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
-	//address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
+	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
+	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 	trytesSeed, err := giota.ToTrytes(seed)
 	if err != nil {
@@ -59,7 +59,7 @@ func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	tempValue.Recipient = address
 
-	balances, _ := giota.GetInputs(myapi, trytesSeed, 0, 1000, 1, 2)
+	balances, _ := giota.GetInputs(myapi, trytesSeed, 0, 1000, 0, 2)
 	tempValue.Balances = balances.Total()
 
 	collectedMessages = append(collectedMessages, tempValue)
