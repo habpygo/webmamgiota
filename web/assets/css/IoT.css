@@ -5,9 +5,6 @@ body {
     /* #fff */
 }
 
-
-/* The Dapp logo */
-
 main.container {
     margin-bottom: 100px;
 }
@@ -49,9 +46,9 @@ hr {
     display: inline-block;
     height: 150%;
     margin-right: 10px;
-}
+} 
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-fixed-top .navbar-nav>li>a {
     color: #123f7f;
     background-color: #FFFFFF;
     text-transform: uppercase;
