@@ -14,12 +14,14 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 	fs := http.FileServer(http.Dir("web/assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
-	//send message
+	//send message|web-app starts here
 	http.HandleFunc("/sendmessage.html", controllers.SendHandler)
 
-	//web-app starts here
+	//show historic MAMs for particular address
 	http.HandleFunc("/queryallmessages.html", controllers.AllMessagesHandler)
 
+	//check for new messages
+	http.HandleFunc("/checkfornewmessages.html", controllers.ReceiveHandler)
 	//NOTE: if first page is changed, change it in controller.go as well
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("HandleFunc will redirect the / to whatever page you deem fit.")

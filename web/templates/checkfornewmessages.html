@@ -1,0 +1,31 @@
+{{define "title"}}Check for new messages{{end}} {{define "body"}}
+
+
+<div class="row row-content" action="checkfornewmessages.html" method="post">
+        <!-- <div class="col-xs-1 col-sm-1"></div> -->
+        <div class="col-xs-12 col-sm-12 blocklimstext" style="text-align:center">
+            <div>
+                <h1 style="color: black">New MAM listener</h1>
+            </div>
+            <div>
+                <h2 style="color: white;font-size: 18px">For address: {{range .}} {{.Recipient}} {{end}}</h2>
+            </div>
+        </div>
+
+</div>
+
+
+
+
+<hr/>
+<div class="form-group blocklimslabel">
+    <div style="text-align: center">
+        <input type="hidden" name="submitted" value="true">
+        <button type="submit" class="btn btn-info">Start looking for new messages</button>
+    </div>
+</div>
+
+
+
+
+{{end}}
