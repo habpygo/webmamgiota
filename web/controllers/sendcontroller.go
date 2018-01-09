@@ -39,6 +39,7 @@ var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASE
 
 //SendHandler retrieves the message values from the webpage and sends it to the address given
 func SendHandler(w http.ResponseWriter, r *http.Request) {
+	//TODO: show a alert when Success == true
 	data := &struct {
 		TransactionID string
 		TimeStamp     string
@@ -77,6 +78,10 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 
+		data.Success = true
+		data.Response = true
+		data.TransactionID = id
+		//fmt.Println("Data is: ", data)
 		fmt.Printf("Sent transaction: %v\n", id)
 
 	}
