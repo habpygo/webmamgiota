@@ -30,6 +30,6 @@ func main() {
 
 	msgwebpage := &controllers.MAMBoardSetup{}
 	fmt.Println("We enter main()")
-	go open("http://localhost:3000/")
+	open("http://localhost:3000/")
 	web.Serve(msgwebpage)
 }
