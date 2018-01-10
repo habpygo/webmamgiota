@@ -27,9 +27,9 @@ func open(url string) error {
 }
 
 func main() {
-
 	msgwebpage := &controllers.MAMBoardSetup{}
 	fmt.Println("We enter main()")
+	//TODO: find out whether concurrency management would be appropriate here
 	open("http://localhost:3000/")
 	web.Serve(msgwebpage)
 }
