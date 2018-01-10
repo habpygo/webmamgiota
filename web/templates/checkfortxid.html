@@ -1,0 +1,55 @@
+{{define "title"}}History Page{{end}} {{define "body"}}
+
+
+<div class="container">
+    <div class="col-xs-12 col-sm-12">
+        <h3 style="text-align: center;color:black">Transaction ID Request</h3>
+        <h1 style="text-align: center;color: black; padding-bottom: 20px">Write and send a new messgage to the tangle</h1>
+        <form class="form-horizontal" action="checkfortxid.html" method="post">
+
+                <div class="form-group blocklimslabel">
+                        <label class="iotablocktext">Copy and paste Transaction ID here </label>
+                        <input type="text" class="form-control" id="txid" placeholder="txid" name="txid">
+                </div>
+            
+                <!-- Place two more inuts here, address and seed and take it out the controller -->
+
+    <hr/>
+            <div class="form-group blocklimslabel">
+                <div style="text-align: center">
+                    <input type="hidden" name="submitted" value="true">
+                    <button type="submit" class="btn btn-info">Send Transaction ID</button>
+                </div>
+            </div>
+         </form>
+    </div>
+</div>
+
+<div class="container blocklimslabel" style="font-size: 18px">
+
+    <div class="form-group row">
+        <div class="col-sm-7">
+            <label class="col-sm-8 blocklimslabel" style="text-align: left">Transaction Message:</label>
+        </div>
+        <div class="col-sm-5" style="text-align: right">{{.Message}}</div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-7">
+            <label class="col-sm-8 blocklimslabel" style="text-align: left">Transaction Value:</label>
+        </div>
+        <div class="col-sm-5" style="text-align: right">{{.Value}}</div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-7">
+            <label class="col-sm-8 blocklimslabel" style="text-align: left">Transaction Recipient:</label>
+        </div>
+        <div class="col-sm-5" style="text-align: right">{{.Recipient}}</div>
+    </div>
+
+</div>
+
+
+
+{{end}}

@@ -21,7 +21,7 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 	http.HandleFunc("/queryaddressformessages.html", controllers.AllMessagesForAddressHandler)
 
 	//check for new messages
-	http.HandleFunc("/checkfornewmessages.html", controllers.ReceiveHandler)
+	http.HandleFunc("/checkfortxid.html", controllers.CheckForTxIdHandler)
 
 	//NOTE: if first page is changed, change it in controller.go as well
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

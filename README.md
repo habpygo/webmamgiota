@@ -94,7 +94,7 @@ func main(){
 }
 ```
 
-#### Examples mamgoiota
+#### Examples webmamgiota/mamgoiota
 These examples won't work anymore on this site. Hopefully we will manage to get this workin with the `iotaledger/iota.lib.go` repository on GitHub.
 
 Check out our [example folder](/example) for a send and a receive example.

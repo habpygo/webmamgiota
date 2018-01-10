@@ -58,7 +58,7 @@ hr {
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
     color: #00786B;
-    background-color: #00786B; /*#92EDE9*/
+    background-color: #92EDE9; /*#92EDE9*/
 }
 
 
@@ -98,18 +98,18 @@ hr {
 }
 
 .blocklimstext {
-    color: #2170B3;
+    color: #dddddd;
     /* # 1b5c9e*/
     /* #742538   */
 }
 
 .blocklimsordinarytext {
-    color: #2170B3;
+    color: #eeeeee;
     /* #1b5c9e*/
 }
 
 .blocklimslabel {
-    color: #2170B3;
+    color: #dddddd;
     /*#1a8000 */
     text-align: left;
 }
