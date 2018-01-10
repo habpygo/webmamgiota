@@ -1,9 +1,8 @@
-# mamgoiota
+# webmamgiota
 
-This is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang.
+`webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI
 
 This project is still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs.
-Name of the project will change to `webmamgoiota` as we want to have a nice interface to send, receive and get a list of past messages send to a particular address.
 
 ## Install
 
@@ -13,34 +12,29 @@ It is assumed that you have Golang installed. You also need to install the Go li
 go get -u github.com/iotaledger/giota
 ```
 
-After that you can download the mamgoiota package.
+After that you can download the webmamgiota package.
 
 ```javascript
-go get -u github.com/habpygo/mamgoiota
+go get -u github.com/habpygo/webmamgiota
 ```
-
-To be able to do testing and assertions you have to install the `stretchr` package
-
-```javascript
-go get -u github.com/stretchr/testify
-```
-
 
 ## Sending MAMs to the IOTA tangle with Go
 
 ### API
 
-#### Create a new Connection
-```go
-import "github.com/iotaledger/mamgoiota"
+#### Connection
+A new connection is automatically created when the app is started and pointed to port 3000 of your local webbrowser.
 
-func main(){
-    c, err := mamgoiota.NewConnection("someNodeURL", "yourSeed")
-    if c != nil && err == nil{
-        fmt.Println("Connection is valid")
-    }
+```go
+func main() {
+	...
+	open("http://localhost:3000/")
+	web.Serve(msgwebpage)
 }
 ```
+
+The node currently defauls to `http://node02.iotatoken.nl:14265` but any 
+nodeURL works.
 If you don't have a nodeURL try out one from: http://iotasupport.com/lightwallet.shtml
 
 If you don't have a seed yet, follow the description here: https://iota.readme.io/docs/securely-generating-a-seed
@@ -50,25 +44,13 @@ Please keep in mind that you may NEVER loose this seed nor give it to anybody el
 
 
 
-#### Send a MAM to the IOTA tangle from the CLI
-```go
-import "github.com/iotaledger/mamgoiota"
+#### Send a MAM to the IOTA tangle
+After the webpage has opened, you can write a message in the input field labeled "Text message". Fill in 0 for Value (not working yet) and press the `Send message` button. This might take a while depending on the traffic.
+After sending, you find your transaction by clicking on the `Query address for all messages`.
 
-func main(){
-    c, err := mamgoiota.NewConnection("someNodeURL", "yourSeed")
-    if err != nil{
-        panic(err)
-    }
-    id, err := Send("the receiving address", 0, "your stringified message", c)
-    if err != nil{
-        panic(err)
-    }
-    fmt.Printf("Send to the Tangle. TransactionId: %v\n", id)
-}
-```
-After sending, you find your transaction here https://thetangle.org giving the TransactionId
+You can also peruse it here https://thetangle.org giving the TransactionId.
 
-If you want to transfer value aswell (here 100 IOTA) call the send method like this: ```Send("the receiving address", 100, "your stringified message", c)```.
+<!-- If you want to transfer value aswell (here 100 IOTA) call the send method like this: ```Send("the receiving address", 100, "your stringified message", c)```. -->
 
 #### Read data from the IOTA tangle from the CLI
 Reading all transaction received by a certain adress:
@@ -111,14 +93,6 @@ func main(){
     t.Logf("%v: %d IOTA, %v to %v\n", tx.Timestamp, tx.Value, tx.Message, tx.Recipient)
 }
 ```
-#### Examples webmamgoiota - reading and sending from the webpage
-1. From the root run `go run main.go`
-2. Open your webbrowser and point to `http://localhost:3000` 
-3. Click on the `Query all messages` tab and you should see all messages listed, sorted from youngest to oldest.
-
-If you want to send messages, click back to the `Send messages` tab and write your message in the Text message input field.
-
-Make sure to set `value` to 0 (I assume you have no IOTAs at the address)
 
 #### Examples mamgoiota
 These examples won't work anymore on this site. Hopefully we will manage to get this workin with the `iotaledger/iota.lib.go` repository on GitHub.
@@ -143,6 +117,7 @@ If the Node is offline try another one, mentioned above.
 - [ ] Make web-app
 - [ ] Read sensor data, e.g. RuuVi tag
 - [ ] More Read options
+- [ ] Send Value
 - [X] Read by TransactionId
 
 
