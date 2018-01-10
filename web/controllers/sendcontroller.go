@@ -39,7 +39,7 @@ var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASE
 
 //SendHandler retrieves the message values from the webpage and sends it to the address given
 func SendHandler(w http.ResponseWriter, r *http.Request) {
-	//TODO: show a alert when Success == true
+	//TODO: decide whether all struct fields should be used in the Alert
 	data := &struct {
 		TransactionID string
 		TimeStamp     string
@@ -68,21 +68,16 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		newMamMessage.Value = value
 
-		/* WRITE YOUR MESSAGE HERE */
-		//message := "Test text message from web-app to assert that all is good" //+ msgTime
-
-		//we use mamgoiota here to test whether the mamgoiota folder in the library is still working
-		//otherwise use connections.Send() like connections.NewConnection() above
-		id, err := mamgoiota.Send(address, newMamMessage.Value, newMamMessage.Message, c)
+		txid, err := mamgoiota.Send(address, newMamMessage.Value, newMamMessage.Message, c)
 		if err != nil {
 			panic(err)
 		}
 
 		data.Success = true
 		data.Response = true
-		data.TransactionID = id
+		data.TransactionID = txid
 		//fmt.Println("Data is: ", data)
-		fmt.Printf("Sent transaction: %v\n", id)
+		fmt.Printf("Sent transaction: %v\n", txid)
 
 	}
 	renderTemplate(w, r, "sendmessage.html", data)

@@ -18,10 +18,11 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 	http.HandleFunc("/sendmessage.html", controllers.SendHandler)
 
 	//show historic MAMs for particular address
-	http.HandleFunc("/queryallmessages.html", controllers.AllMessagesHandler)
+	http.HandleFunc("/queryaddressformessages.html", controllers.AllMessagesForAddressHandler)
 
 	//check for new messages
 	http.HandleFunc("/checkfornewmessages.html", controllers.ReceiveHandler)
+
 	//NOTE: if first page is changed, change it in controller.go as well
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("HandleFunc will redirect the / to whatever page you deem fit.")

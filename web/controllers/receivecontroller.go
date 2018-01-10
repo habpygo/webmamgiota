@@ -26,7 +26,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/giota/mamgoiota/connections"
+	//for debugging reasons we keep both imports
+	mamgoiota "github.com/giota/mamgoiota/connections"
 	"github.com/iotaledger/mamgoiota/connections"
 )
 

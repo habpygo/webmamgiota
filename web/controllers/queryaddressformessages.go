@@ -23,7 +23,7 @@ type MAMBoardSetup struct {
 }
 
 //AllMessagesHandler will collect all the mesages and puts it into the messageCollection slice
-func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
+func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("AllMessagesHandler is entered")
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
@@ -59,7 +59,7 @@ func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	tempValue.Recipient = address
 
-	balances, _ := giota.GetInputs(myapi, trytesSeed, 0, 1000, 0, 2)
+	balances, _ := giota.GetInputs(myapi, trytesSeed, 0, 10, 0, 2)
 	tempValue.Balances = balances.Total()
 
 	collectedMessages = append(collectedMessages, tempValue)
@@ -67,6 +67,6 @@ func AllMessagesHandler(w http.ResponseWriter, r *http.Request) {
 	for i, m := range messageCollection[:] {
 		fmt.Printf("%d. %v. Value is %v. Timestamp is %v. and recipient is %v\n", i+1, m.Message, m.Value, m.Timestamp, m.Recipient)
 	}
-	renderTemplate(w, r, "queryallmessages.html", collectedMessages)
+	renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)
 
 }
