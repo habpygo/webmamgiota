@@ -8,7 +8,7 @@ import (
 	//"github.com/iotaledger/mamgoiota"
 
 	"github.com/iotaledger/giota"
-	"github.com/iotaledger/mamgoiota/connections"
+	"github.com/iotaledger/webmamgiota/connections"
 )
 
 //MAMBoardSetup is the data to be transferred by bundles and exposed in the web-app

@@ -28,7 +28,7 @@ import (
 
 	//for debugging reasons we keep both imports
 	mamgoiota "github.com/giota/mamgoiota/connections"
-	"github.com/iotaledger/mamgoiota/connections"
+	"github.com/iotaledger/webmamgiota/connections"
 )
 
 //ReceiveHandler checks for new messages every n seconds

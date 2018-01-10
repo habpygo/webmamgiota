@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/iotaledger/mamgoiota/mamutils"
+	"github.com/iotaledger/webmamgiota/mamutils"
 
 	"github.com/iotaledger/giota"
 )
