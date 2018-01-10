@@ -32,5 +32,4 @@ func main() {
 	fmt.Println("We enter main()")
 	go open("http://localhost:3000/")
 	web.Serve(msgwebpage)
-
 }
