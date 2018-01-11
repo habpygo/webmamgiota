@@ -1,10 +1,10 @@
 # webmamgiota
 
-<span style="color:red">WARNING: DO NOT USE THE SEED OF YOUR WALLET!</span>
+<span style="color:red">WARNING: DO NOT USE THE SEED OF YOUR WALLET!</span> 
 
-This web-app is still under construction and no safety tests have been conducted yet. If you want to, only play around with small values.
+This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed.
 
-`webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI
+`webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI.
 
 This project is still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs.
 

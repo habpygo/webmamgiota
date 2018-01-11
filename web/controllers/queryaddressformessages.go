@@ -63,6 +63,7 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	tempValue.Balances = balances.Total()
 
 	collectedMessages = append(collectedMessages, tempValue)
+
 	//debug
 	for i, m := range messageCollection[:] {
 		fmt.Printf("%d. %v. Value is %v. Timestamp is %v. and recipient is %v\n", i+1, m.Message, m.Value, m.Timestamp, m.Recipient)
