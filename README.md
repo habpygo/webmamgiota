@@ -1,5 +1,9 @@
 # webmamgiota
 
+<span style="color:red">WARNING: DO NOT USE THE SEED OF YOUR WALLET!</span>
+
+This web-app is still under construction and no safety tests have been conducted yet. If you want to, only play around with small values.
+
 `webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI
 
 This project is still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs.
@@ -21,6 +25,9 @@ go get -u github.com/habpygo/webmamgiota
 ## Sending MAMs to the IOTA tangle with Go
 
 ### API
+
+#### Run the web-app
+In the root directory enter `go run main.go`. Your browser automatically opens up on the Send message page.
 
 #### Connection
 A new connection is automatically created when the app is started and pointed to port 3000 of your local webbrowser.
