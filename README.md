@@ -27,6 +27,7 @@ go get -u github.com/habpygo/webmamgiota
 ### API
 
 #### Run the web-app
+
 In the root directory enter `go run main.go`. Your browser automatically opens up on the Send message page.
 
 #### Connection
@@ -52,6 +53,7 @@ Please keep in mind that you may NEVER loose this seed nor give it to anybody el
 
 
 #### Send a MAM to the IOTA tangle
+
 After the webpage has opened, you can write a message in the input field labeled "Text message". Fill in 0 for Value (not working yet) and press the `Send message` button. This might take a while depending on the traffic.
 After sending, you find your transaction by clicking on the `Query address for all messages`.
 
@@ -60,6 +62,7 @@ You can also peruse it here https://thetangle.org giving the TransactionId.
 <!-- If you want to transfer value aswell (here 100 IOTA) call the send method like this: ```Send("the receiving address", 100, "your stringified message", c)```. -->
 
 #### Read data from the IOTA tangle from the CLI
+
 Reading all transaction received by a certain adress:
 ```go
 import "github.com/iotaledger/mamgoiota"
@@ -102,6 +105,7 @@ func main(){
 ```
 
 #### Examples webmamgiota/mamgoiota
+
 These examples won't work anymore on this site. Hopefully we will manage to get this workin with the `iotaledger/iota.lib.go` repository on GitHub.
 
 Check out our [example folder](/example) for a send and a receive example.
@@ -119,6 +123,7 @@ If you pick up the transaction hash from the Terminal output and paste it into t
 If the Node is offline try another one, mentioned above.
 
 ### TODOs
+
 - [ ] GoDoc
 - [ ] Travis
 - [ ] Make web-app

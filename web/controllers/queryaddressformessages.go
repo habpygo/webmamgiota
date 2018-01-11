@@ -22,7 +22,7 @@ type MAMBoardSetup struct {
 	Balances  int64
 }
 
-//AllMessagesHandler will collect all the mesages and puts it into the messageCollection slice
+//AllMessagesForAddressHandler will collect all the mesages and puts it into the messageCollection slice
 func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("AllMessagesHandler is entered")
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
