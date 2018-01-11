@@ -20,8 +20,11 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 	//show historic MAMs for particular address
 	http.HandleFunc("/queryaddressformessages.html", controllers.AllMessagesForAddressHandler)
 
-	//check for new messages
+	//check messages for a particular transaction hash
 	http.HandleFunc("/checkfortxid.html", controllers.CheckForTxIdHandler)
+
+	//checks for new messages a certain time intervals
+	// http.HandleFunc("/checkfornewmessages.html", controllers.Receive(ReceiveHandler))
 
 	//NOTE: if first page is changed, change it in controller.go as well
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

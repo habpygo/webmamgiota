@@ -42,7 +42,7 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var n time.Duration
-	n = 5
+	n = 15
 
 	var lastTransactions []mamgoiota.Transaction
 
@@ -77,3 +77,9 @@ func doEvery(d time.Duration, f func(time.Time)) {
 		f(x)
 	}
 }
+
+// func Receive(h http.Handler) http.Handler {
+// 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+// 		h.ServeHTTP(w, r)
+// 	})
+// }

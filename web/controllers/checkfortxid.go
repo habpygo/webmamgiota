@@ -22,6 +22,7 @@ KEWIJJVTLQNSXJXV9BTQKYMXQRCDFTOXJVBVEJKGCELCPGAN9YOTZ9EESFGFKDG9R9XORHFCKIUE9999
 UHGTSYS9DGKBERKLZELMAQVVOCH9PBXVV9KETWEXNKJKZO9CCBQWLASPKGUBMWIORPRYHYRYNUQM99999
 */
 
+//CheckForTxIdHandler returns the message, value(when applicable) and address of recipient for a given transaction
 func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 
 	TxResult := &struct {
