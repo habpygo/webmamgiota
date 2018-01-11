@@ -4,12 +4,12 @@
 <div class="container">
     <div class="col-xs-12 col-sm-12">
         <h3 style="text-align: center;color:black">Transaction ID Request</h3>
-        <h1 style="text-align: center;color: black; padding-bottom: 20px">Write and send a new messgage to the tangle</h1>
+        <h1 style="text-align: center;color: black; padding-bottom: 20px">Get message by Transaction ID</h1>
         <form class="form-horizontal" action="checkfortxid.html" method="post">
 
                 <div class="form-group blocklimslabel">
                         <label class="iotablocktext">Copy and paste Transaction ID here </label>
-                        <input type="text" class="form-control" id="txid" placeholder="txid" name="txid">
+                        <input type="text" class="form-control" id="txid" placeholder="Enter Tx Id here" name="txid">
                 </div>
             
                 <!-- Place two more inuts here, address and seed and take it out the controller -->
@@ -28,24 +28,24 @@
 <div class="container blocklimslabel" style="font-size: 18px">
 
     <div class="form-group row">
-        <div class="col-sm-7">
-            <label class="col-sm-8 blocklimslabel" style="text-align: left">Transaction Message:</label>
+        <div class="col-sm-3">
+            <label class="col-sm-12 blocklimslabel" style="text-align: left">Message:</label>
         </div>
-        <div class="col-sm-5" style="text-align: right">{{.Message}}</div>
+        <div class="col-sm-9" style="text-align: left">{{.Message}}</div>
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-7">
-            <label class="col-sm-8 blocklimslabel" style="text-align: left">Transaction Value:</label>
+        <div class="col-sm-3">
+            <label class="col-sm-12 blocklimslabel" style="text-align: left">Value:</label>
         </div>
-        <div class="col-sm-5" style="text-align: right">{{.Value}}</div>
+        <div class="col-sm-9" style="text-align: left">{{.Value}}</div>
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-7">
-            <label class="col-sm-8 blocklimslabel" style="text-align: left">Transaction Recipient:</label>
+        <div class="col-sm-3">
+            <label class="col-sm-12 blocklimslabel" style="text-align: left">Recipient:</label>
         </div>
-        <div class="col-sm-5" style="text-align: right">{{.Recipient}}</div>
+        <div class="col-sm-9" style="text-align: left;font-size: 11px">{{.Recipient}}</div>
     </div>
 
 </div>

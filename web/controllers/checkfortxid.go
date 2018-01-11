@@ -16,7 +16,10 @@ import (
 // }
 
 //Check TxId
-//KEWIJJVTLQNSXJXV9BTQKYMXQRCDFTOXJVBVEJKGCELCPGAN9YOTZ9EESFGFKDG9R9XORHFCKIUE99999
+/*
+KEWIJJVTLQNSXJXV9BTQKYMXQRCDFTOXJVBVEJKGCELCPGAN9YOTZ9EESFGFKDG9R9XORHFCKIUE99999
+UHGTSYS9DGKBERKLZELMAQVVOCH9PBXVV9KETWEXNKJKZO9CCBQWLASPKGUBMWIORPRYHYRYNUQM99999
+*/
 
 func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -27,7 +30,7 @@ func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		Value:     0,
 		Message:   "Just the same old story",
-		Recipient: "",
+		Recipient: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
 	}
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
@@ -53,7 +56,7 @@ func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 		TxResult.Value = Result.Value
 		TxResult.Recipient = Result.Recipient
 
-		renderTemplate(w, r, "checkfortxid.html", TxResult)
+		//renderTemplate(w, r, "checkfortxid.html", TxResult)
 
 	}
 
