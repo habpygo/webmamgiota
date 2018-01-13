@@ -77,9 +77,3 @@ func doEvery(d time.Duration, f func(time.Time)) {
 		f(x)
 	}
 }
-
-// func Receive(h http.Handler) http.Handler {
-// 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-// 		h.ServeHTTP(w, r)
-// 	})
-// }

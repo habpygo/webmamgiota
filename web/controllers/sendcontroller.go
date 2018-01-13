@@ -26,6 +26,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/iotaledger/webmamgiota/connections"
+
 	mamgoiota "github.com/giota/mamgoiota/connections"
 )
 
@@ -50,8 +52,8 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		Success:       false,
 		Response:      false,
 	}
-	//"https://testnet140.tangle.works"
-	c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	//c, err := connections.NewConnection("https://testnet140.tangle.works", seed)
+	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)

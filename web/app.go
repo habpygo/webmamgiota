@@ -23,14 +23,10 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 	//check messages for a particular transaction hash
 	http.HandleFunc("/checkfortxid.html", controllers.CheckForTxIdHandler)
 
-	//checks for new messages a certain time intervals
-	// http.HandleFunc("/checkfornewmessages.html", controllers.Receive(ReceiveHandler))
-
 	//NOTE: if first page is changed, change it in controller.go as well
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("HandleFunc will redirect the / to whatever page you deem fit.")
 		http.Redirect(w, r, "/sendmessage.html", http.StatusTemporaryRedirect)
-		//http.Redirect(w, r, "/queryallmessages.html", http.StatusTemporaryRedirect)
 	})
 
 	fmt.Println("Listening (http://localhost:3000/) ...")
