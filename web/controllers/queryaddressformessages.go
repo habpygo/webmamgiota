@@ -7,7 +7,6 @@ import (
 
 	//"github.com/iotaledger/mamgoiota"
 
-	mamgoiota "github.com/giota/mamgoiota/connections"
 	"github.com/iotaledger/giota"
 	"github.com/iotaledger/webmamgiota/connections"
 )
@@ -74,42 +73,42 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("%d. %v. Value is %v. Timestamp is %v. and recipient is %v\n", i+1, m.Message, m.Value, m.Timestamp, m.Recipient)
 	}
 
-	var n time.Duration
-	n = 10
-	var lastTransactions []mamgoiota.Transaction
+	// var n time.Duration
+	// n = 10
+	// var lastTransactions []mamgoiota.Transaction
 
 	//TODO: doesn't work, should be achieved by using websockets
-	defer doEvery(n*time.Second, func(t time.Time) {
-		fmt.Println("Looking for new messages")
+	// defer doEvery(n*time.Second, func(t time.Time) {
+	// 	fmt.Println("Looking for new messages")
 
-		newTransactions, err := mamgoiota.ReadTransactions(address, c)
-		if err != nil {
-			panic(err)
-		}
+	// 	newTransactions, err := mamgoiota.ReadTransactions(address, c)
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
 
-		if len(lastTransactions) != 0 && len(lastTransactions) < len(newTransactions) {
-			diff := len(newTransactions) - len(lastTransactions)
+	// 	if len(lastTransactions) != 0 && len(lastTransactions) < len(newTransactions) {
+	// 		diff := len(newTransactions) - len(lastTransactions)
 
-			fmt.Printf("Got %d new messages\n", diff)
+	// 		fmt.Printf("Got %d new messages\n", diff)
 
-			for i, m := range newTransactions[:diff] {
-				tempValue.Number = i
-				tempValue.Message = m.Message
-				tempValue.Value = m.Value
-				tempValue.Timestamp = m.Timestamp
+	// 		for i, m := range newTransactions[:diff] {
+	// 			tempValue.Number = i
+	// 			tempValue.Message = m.Message
+	// 			tempValue.Value = m.Value
+	// 			tempValue.Timestamp = m.Timestamp
 
-				collectedMessages = append(collectedMessages, tempValue)
-				fmt.Printf("%d. %v\n", i+1, m.Message)
-			}
+	// 			collectedMessages = append(collectedMessages, tempValue)
+	// 			fmt.Printf("%d. %v\n", i+1, m.Message)
+	// 		}
 
-			lastTransactions = newTransactions
-			renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)
-			return
-		}
+	// 		lastTransactions = newTransactions
+	// 		renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)
+	// 		return
+	// 	}
 
-		lastTransactions = newTransactions
-		fmt.Println("No new messages")
-	})
+	//lastTransactions = newTransactions
+	fmt.Println("No new messages")
+	//}
 
 	renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)
 
