@@ -26,9 +26,7 @@ import (
 	"net/http"
 	"time"
 
-	//for debugging reasons we keep both imports
-	mamgoiota "github.com/giota/mamgoiota/connections"
-	"github.com/iotaledger/webmamgiota/connections"
+	connections "github.com/habpygo/mam.client.go"
 )
 
 //ReceiveHandler checks for new messages every n seconds
@@ -44,12 +42,12 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	var n time.Duration
 	n = 15
 
-	var lastTransactions []mamgoiota.Transaction
+	var lastTransactions []connections.Transaction
 
 	doEvery(n*time.Second, func(t time.Time) {
 		fmt.Println("Looking for new messages")
 
-		newTransactions, err := mamgoiota.ReadTransactions(address, c)
+		newTransactions, err := connections.ReadTransactions(address, c)
 		if err != nil {
 			panic(err)
 		}

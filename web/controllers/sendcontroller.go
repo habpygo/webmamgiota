@@ -26,9 +26,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/iotaledger/webmamgiota/connections"
+	connections "github.com/habpygo/mam.client.go"
 
-	mamgoiota "github.com/giota/mamgoiota/connections"
 )
 
 /* various addresses used by me and Jonah and me */
@@ -37,7 +36,7 @@ import (
 var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 
 //var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
-var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
+var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 
 //SendHandler retrieves the message values from the webpage and sends it to the address given
 func SendHandler(w http.ResponseWriter, r *http.Request) {
@@ -70,7 +69,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		newMamMessage.Value = value
 
-		txid, err := mamgoiota.Send(address, newMamMessage.Value, newMamMessage.Message, c)
+		txid, err := connections.Send(address, newMamMessage.Value, newMamMessage.Message, c)
 		if err != nil {
 			panic(err)
 		}

@@ -8,7 +8,7 @@ import (
 	//"github.com/iotaledger/mamgoiota"
 
 	"github.com/iotaledger/giota"
-	"github.com/iotaledger/webmamgiota/connections"
+	connections "github.com/habpygo/mam.client.go"
 )
 
 //var upgrader = websocket.Upgrader{}
@@ -30,7 +30,7 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
 	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
-	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
+	seed := "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 	trytesSeed, err := giota.ToTrytes(seed)
 	if err != nil {
 		panic(err)
