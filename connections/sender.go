@@ -1,7 +1,7 @@
 package connections
 
 import (
-	"github.com/iotaledger/webmamgiota/mamutils"
+	"iota/webmamgiota/mamutils"
 
 	"github.com/iotaledger/giota"
 )

@@ -26,7 +26,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/iotaledger/webmamgiota/connections"
+	"iota/webmamgiota/connections"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
 )

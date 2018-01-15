@@ -9,8 +9,8 @@ func NewConnection(provider, seed string) (*Connection, error) {
 	return &Connection{
 		api:      giota.NewAPI(provider, nil),
 		seed:     seed,
-		security: 2,
-		mwm:      9,
+		security: 3,
+		mwm:      15,
 	}, nil
 }
 
@@ -35,7 +35,7 @@ The way the library does this, it makes use of findTransactions to
 figure out if there is any address in the Tangle that has already been used.
 If findTransactions returns associated transactions, the key index is
 simply incremented, a new address generated and findTransactions called
-again until it returns null. Fairly simple, but effective.
+again until it returns null.
 */
 func (c *Connection) FindTransactions(req giota.FindTransactionsRequest) ([]giota.Transaction, error) {
 	found, err := c.api.FindTransactions(&req)

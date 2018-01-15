@@ -7,9 +7,16 @@ import (
 
 	//"github.com/iotaledger/mamgoiota"
 
+	"iota/webmamgiota/connections"
+
+	"github.com/gorilla/websocket"
 	"github.com/iotaledger/giota"
-	"github.com/iotaledger/webmamgiota/connections"
 )
+
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+}
 
 //var upgrader = websocket.Upgrader{}
 
@@ -107,7 +114,7 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	// 	}
 
 	//lastTransactions = newTransactions
-	fmt.Println("No new messages")
+	//fmt.Println("No new messages")
 	//}
 
 	renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)

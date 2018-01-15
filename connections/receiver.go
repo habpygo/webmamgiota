@@ -2,10 +2,9 @@ package connections
 
 import (
 	"fmt"
+	"iota/webmamgiota/mamutils"
 	"sort"
 	"time"
-
-	"github.com/iotaledger/webmamgiota/mamutils"
 
 	"github.com/iotaledger/giota"
 )

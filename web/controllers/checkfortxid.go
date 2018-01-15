@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/iotaledger/webmamgiota/connections"
+	"iota/webmamgiota/connections"
 )
 
 //TransactionVars contain the most important variables in the struct

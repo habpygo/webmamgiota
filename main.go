@@ -5,8 +5,8 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/iotaledger/webmamgiota/web"
-	"github.com/iotaledger/webmamgiota/web/controllers"
+	"iota/webmamgiota/web"
+	"iota/webmamgiota/web/controllers"
 )
 
 func open(url string) error {

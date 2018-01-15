@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/iotaledger/webmamgiota/web/controllers"
+	"iota/webmamgiota/web/controllers"
 )
 
 //Serve will listen for and serve up data on port 3000
