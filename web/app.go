@@ -29,7 +29,7 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 		http.Redirect(w, r, "/sendmessage.html", http.StatusTemporaryRedirect)
 	})
 
-	fmt.Println("Listening (http://localhost:3000/) ...")
+	fmt.Println("Listening (http://localhost:8080/) ...")
 	fmt.Println("=======================================================")
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":8080", nil)
 }
