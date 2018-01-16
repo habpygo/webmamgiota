@@ -2,6 +2,8 @@
 
 <span style="color:red">WARNING: DO NOT USE THE SEED OF YOUR WALLET!</span> 
 
+NOTE: Tab `Check for IoT data` not working yet. Work in progress.
+
 This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed.
 
 `webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI.
