@@ -1,6 +1,8 @@
 package connections
 
-import "github.com/iotaledger/giota"
+import "github.com/giota"
+
+//"github.com/iotaledger/giota"
 
 //functions as a setup file
 

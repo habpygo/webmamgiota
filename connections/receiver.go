@@ -6,7 +6,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/iotaledger/giota"
+	"github.com/giota"
+	//"github.com/iotaledger/giota"
 )
 
 type Transaction struct {

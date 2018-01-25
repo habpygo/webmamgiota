@@ -23,11 +23,12 @@ package controllers
 
 import (
 	"fmt"
+	"iota/webmamgiota/connections"
 	"net/http"
 	"time"
 
 	//for debugging reasons we keep both imports
-	"iota/webmamgiota/connections"
+	//"github.com/giota/webmamgiota/connections"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
 )

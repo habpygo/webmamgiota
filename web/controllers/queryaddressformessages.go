@@ -9,8 +9,9 @@ import (
 
 	"iota/webmamgiota/connections"
 
+	"github.com/giota"
 	"github.com/gorilla/websocket"
-	"github.com/iotaledger/giota"
+	//"github.com/iotaledger/giota"
 )
 
 var upgrader = websocket.Upgrader{
