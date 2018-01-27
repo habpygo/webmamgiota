@@ -127,8 +127,6 @@ If the Node is offline try another one, mentioned above.
 ### TODOs
 
 - [ ] GoDoc
-- [ ] Travis
-- [ ] Make web-app
 - [ ] Read sensor data, e.g. RuuVi tag
 - [ ] More Read options
 - [ ] Send Value

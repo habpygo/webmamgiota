@@ -5,9 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	//"github.com/iotaledger/mamgoiota"
-
-	"iota/webmamgiota/connections"
+	mamgoiota "github.com/giota/mamgoiota/connections"
 
 	"github.com/giota"
 	"github.com/gorilla/websocket"
@@ -47,12 +45,12 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	provider := "http://node02.iotatoken.nl:14265"
 	//provider := "http://eugene.iota.community:14265"
 
-	c, err := connections.NewConnection(provider, "")
+	c, err := mamgoiota.NewConnection(provider, "")
 	if err != nil {
 		panic(err)
 	}
 
-	messageCollection, err := connections.ReadTransactions(address, c)
+	messageCollection, err := mamgoiota.ReadTransactions(address, c)
 	if err != nil {
 		panic(err)
 	}

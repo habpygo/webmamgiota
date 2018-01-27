@@ -23,12 +23,8 @@ package controllers
 
 import (
 	"fmt"
-	"iota/webmamgiota/connections"
 	"net/http"
 	"time"
-
-	//for debugging reasons we keep both imports
-	//"github.com/giota/webmamgiota/connections"
 
 	mamgoiota "github.com/giota/mamgoiota/connections"
 )
@@ -38,7 +34,7 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	provider := "http://node02.iotatoken.nl:14265"
-	c, err := connections.NewConnection(provider, "")
+	c, err := mamgoiota.NewConnection(provider, "")
 	if err != nil {
 		panic(err)
 	}

@@ -26,12 +26,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"iota/webmamgiota/connections"
-
 	mamgoiota "github.com/giota/mamgoiota/connections"
 )
 
-/* various addresses used by me and Jonah and me */
+/* various addresses used by Jonah and me */
 //var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 //var address = "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
 var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
@@ -53,7 +51,8 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		Response:      false,
 	}
 	//c, err := connections.NewConnection("https://testnet140.tangle.works", seed)
-	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)
