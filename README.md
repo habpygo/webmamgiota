@@ -123,7 +123,7 @@ You can also read all the past transactions, i.e. messages + value,  at the addr
 If you pick up the transaction hash from the Terminal output and paste it into the input field on the site https://thetangle.org you find your transaction.
 
 If the Node is offline try another one, mentioned above.
-
+Most TODO'a are similar to the `mam.client.go`.
 ### TODOs
 
 - [ ] GoDoc
