@@ -64,7 +64,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		value, err := strconv.ParseInt(r.FormValue("value"), 10, 64)
 		if err != nil {
-			panic(err)
+			panic(fmt.Errorf("something went wrong in ParseInt: %v", err))
 		}
 
 		newMamMessage.Value = value
