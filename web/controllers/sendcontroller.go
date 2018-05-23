@@ -52,7 +52,9 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//c, err := connections.NewConnection("https://testnet140.tangle.works", seed)
 	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
-	c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	//c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	c, err := mamgoiota.NewConnection("http://nodes.spamnet.iota.org", seed)
+
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)

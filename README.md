@@ -3,8 +3,9 @@
 <span style="color:red">WARNING: DO NOT USE THE SEED OF YOUR WALLET!</span> 
 
 NOTE: Tab `Check for IoT data` not working yet. Work in progress.
+NOTE: You must fill in a number (0 is fine) in the Value IOTAs field, otherwise the app will panic.
 
-This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed.
+This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed. Otherwise and even better, use Spamnet at https://nodes.spamnet.iota.org/ (Previous testnet) for testing purposes, with a MWM of 14 as is suggested here https://blog.iota.org/first-of-the-new-testnets-live-f8f41b99e9a3
 
 `webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI.
 
@@ -30,7 +31,7 @@ go get -u github.com/habpygo/webmamgiota
 
 #### Run the web-app
 
-In the root directory enter `go run main.go`. Your browser automatically opens up on the Send message page.
+In the root directory enter `go run main.go`. Your browser automatically opens up on the Send message page. 
 
 #### Connection
 A new connection is automatically created when the app is started and pointed to port 3000 of your local webbrowser.

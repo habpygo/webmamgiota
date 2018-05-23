@@ -33,7 +33,10 @@ import (
 func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
-	provider := "http://node02.iotatoken.nl:14265"
+
+	//provider := "http://node02.iotatoken.nl:14265"
+	provider := "http://nodes.spamnet.iota.org"
+
 	c, err := mamgoiota.NewConnection(provider, "")
 	if err != nil {
 		panic(err)

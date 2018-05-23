@@ -42,7 +42,9 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	provider := "http://node02.iotatoken.nl:14265"
+	//provider := "http://node02.iotatoken.nl:14265"
+	provider := "http://nodes.spamnet.iota.org"
+
 	//provider := "http://eugene.iota.community:14265"
 
 	c, err := mamgoiota.NewConnection(provider, "")
