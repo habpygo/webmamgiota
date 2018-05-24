@@ -15,13 +15,13 @@ This project is still under construction (see TODO) with the aim to get IoT sens
 
 It is assumed that you have Golang installed. You also need to install the Go library API for IOTA which you can download at:
 
-```javascript
+```go
 go get -u github.com/iotaledger/giota
 ```
 
 After that you can download the webmamgiota package.
 
-```javascript
+```go
 go get -u github.com/habpygo/webmamgiota
 ```
 

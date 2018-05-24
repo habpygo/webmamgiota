@@ -2,10 +2,6 @@ package connections
 
 import "github.com/giota"
 
-//"github.com/iotaledger/giota"
-
-//functions as a setup file
-
 //NewConnection establishes a connection with the given provider and the seed
 func NewConnection(provider, seed string) (*Connection, error) {
 	return &Connection{

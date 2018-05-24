@@ -4,7 +4,6 @@ import (
 	"iota/webmamgiota/mamutils"
 
 	"github.com/giota"
-	//"github.com/iotaledger/giota"
 )
 
 type ApiSender interface {

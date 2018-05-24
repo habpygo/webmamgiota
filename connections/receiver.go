@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/giota"
-	//"github.com/iotaledger/giota"
 )
 
 type Transaction struct {

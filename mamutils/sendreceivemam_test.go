@@ -24,7 +24,6 @@ package mamutils
 import (
 	"testing"
 
-	//"github.com/iotaledger/giota"
 	"github.com/giota"
 	"github.com/stretchr/testify/assert"
 )

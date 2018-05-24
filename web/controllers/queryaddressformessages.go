@@ -2,14 +2,12 @@ package controllers
 
 import (
 	"fmt"
+	"iota/webmamgiota/connections"
 	"net/http"
 	"time"
 
-	mamgoiota "github.com/giota/mamgoiota/connections"
-
 	"github.com/giota"
 	"github.com/gorilla/websocket"
-	//"github.com/iotaledger/giota"
 )
 
 var upgrader = websocket.Upgrader{
@@ -17,10 +15,6 @@ var upgrader = websocket.Upgrader{
 	WriteBufferSize: 1024,
 }
 
-//var upgrader = websocket.Upgrader{}
-
-//MAMBoardSetup is the data to be transferred by bundles and exposed in the web-app
-//It's different from Transfer type
 type MAMBoardSetup struct {
 	Message   string
 	Value     int64
@@ -32,9 +26,6 @@ type MAMBoardSetup struct {
 
 //AllMessagesForAddressHandler will collect all the mesages and puts it into the messageCollection slice
 func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("AllMessagesHandler is entered")
-	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
-	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
 	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 	trytesSeed, err := giota.ToTrytes(seed)
@@ -44,14 +35,12 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	provider := "http://node02.iotatoken.nl:14265"
 	//provider := "http://nodes.spamnet.iota.org"
 
-	//provider := "http://eugene.iota.community:14265"
-
-	c, err := mamgoiota.NewConnection(provider, "")
+	c, err := connections.NewConnection(provider, "")
 	if err != nil {
 		panic(err)
 	}
 
-	messageCollection, err := mamgoiota.ReadTransactions(address, c)
+	messageCollection, err := connections.ReadTransactions(address, c)
 	if err != nil {
 		panic(err)
 	}

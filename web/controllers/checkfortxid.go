@@ -7,21 +7,6 @@ import (
 	"iota/webmamgiota/connections"
 )
 
-//TransactionVars contain the most important variables in the struct
-// type TransactionVars struct {
-// 	Timestamp time.Time
-// 	Value     int64
-// 	Message   string
-// 	Recipient string
-// }
-
-//Check for Transaction IDs TxIds
-//TxIds are for practice
-/*
-KEWIJJVTLQNSXJXV9BTQKYMXQRCDFTOXJVBVEJKGCELCPGAN9YOTZ9EESFGFKDG9R9XORHFCKIUE99999
-UHGTSYS9DGKBERKLZELMAQVVOCH9PBXVV9KETWEXNKJKZO9CCBQWLASPKGUBMWIORPRYHYRYNUQM99999
-*/
-
 //CheckForTxIdHandler returns the message, value(when applicable) and address of recipient for a given transaction
 func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -34,9 +19,6 @@ func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 		Message:   "Just the same old story",
 		Recipient: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
 	}
-	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
-	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
-	//address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 
 	provider := "http://node02.iotatoken.nl:14265"

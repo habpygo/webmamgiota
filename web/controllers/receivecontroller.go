@@ -23,21 +23,18 @@ package controllers
 
 import (
 	"fmt"
+	"iota/webmamgiota/connections"
 	"net/http"
 	"time"
-
-	mamgoiota "github.com/giota/mamgoiota/connections"
 )
 
 //ReceiveHandler checks for new messages every n seconds
 func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
-	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 
 	provider := "http://node02.iotatoken.nl:14265"
-	//provider := "http://nodes.spamnet.iota.org"
 
-	c, err := mamgoiota.NewConnection(provider, "")
+	c, err := connections.NewConnection(provider, "")
 	if err != nil {
 		panic(err)
 	}
@@ -45,12 +42,12 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	var n time.Duration
 	n = 15
 
-	var lastTransactions []mamgoiota.Transaction
+	var lastTransactions []connections.Transaction
 
 	doEvery(n*time.Second, func(t time.Time) {
 		fmt.Println("Looking for new messages")
 
-		newTransactions, err := mamgoiota.ReadTransactions(address, c)
+		newTransactions, err := connections.ReadTransactions(address, c)
 		if err != nil {
 			panic(err)
 		}

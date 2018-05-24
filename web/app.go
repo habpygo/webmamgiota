@@ -25,7 +25,7 @@ func Serve(mamboard *controllers.MAMBoardSetup) {
 
 	//NOTE: if first page is changed, change it in controller.go as well
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("HandleFunc will redirect the / to whatever page you deem fit.")
+		fmt.Println("Waiting for IOTA tangle response...")
 		http.Redirect(w, r, "/sendmessage.html", http.StatusTemporaryRedirect)
 	})
 

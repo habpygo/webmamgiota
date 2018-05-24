@@ -31,8 +31,7 @@ func main() {
 	fmt.Println("We enter main()")
 	//TODO: find out whether concurrency management would be appropriate here
 
-	//open a new webpage...
 	open("http://localhost:3000/")
-	//...and serve it the MAMBoard
+
 	web.Serve(msgwebpage)
 }
