@@ -34,7 +34,6 @@ import (
 //var address = "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
 var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 
-//var seed = "SIERTBRUINSISBEZIGOMEENRONDJESAMENMETWIMAMENTTEMAKENOMZODESUBSIDIERONDTEKRIJGENH9"
 var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 
 //SendHandler retrieves the message values from the webpage and sends it to the address given
@@ -52,9 +51,8 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//c, err := connections.NewConnection("https://testnet140.tangle.works", seed)
 	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
-	//c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
-	c, err := mamgoiota.NewConnection("http://nodes.spamnet.iota.org", seed)
-
+	c, err := mamgoiota.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	//c, err := mamgoiota.NewConnection("http://nodes.spamnet.iota.org", seed)
 	//c, err := connections.NewConnection("http://eugene.iota.community:14265", seed)
 	if err != nil {
 		panic(err)
@@ -73,7 +71,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		txid, err := mamgoiota.Send(address, newMamMessage.Value, newMamMessage.Message, c)
 		if err != nil {
-			panic(err)
+			panic(fmt.Errorf("Transaction failed: %v", err))
 		}
 
 		data.Success = true

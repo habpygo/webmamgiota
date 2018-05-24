@@ -39,8 +39,8 @@ func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 	//address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 
-	//provider := "http://node02.iotatoken.nl:14265"
-	provider := "http://nodes.spamnet.iota.org"
+	provider := "http://node02.iotatoken.nl:14265"
+	//provider := "http://nodes.spamnet.iota.org"
 
 	c, err := connections.NewConnection(provider, seed)
 	if err != nil {

@@ -35,15 +35,14 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("AllMessagesHandler is entered")
 	//address := "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 	//address := "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
-	//address := "RXMDCFKXYUW9NDUFNLAMEFEICJGUYEGVQDFSQERLPMSIRKEMXKAIARXJFXDHZBTAFCE9ZFWFNQKTIJLOXYFNJZIW9W" //Address Remko
 	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 	trytesSeed, err := giota.ToTrytes(seed)
 	if err != nil {
 		panic(err)
 	}
-	//provider := "http://node02.iotatoken.nl:14265"
-	provider := "http://nodes.spamnet.iota.org"
+	provider := "http://node02.iotatoken.nl:14265"
+	//provider := "http://nodes.spamnet.iota.org"
 
 	//provider := "http://eugene.iota.community:14265"
 
@@ -81,43 +80,6 @@ func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
 	for i, m := range messageCollection[:] {
 		fmt.Printf("%d. %v. Value is %v. Timestamp is %v. and recipient is %v\n", i+1, m.Message, m.Value, m.Timestamp, m.Recipient)
 	}
-
-	// var n time.Duration
-	// n = 10
-	// var lastTransactions []mamgoiota.Transaction
-
-	//TODO: doesn't work, should be achieved by using websockets
-	// defer doEvery(n*time.Second, func(t time.Time) {
-	// 	fmt.Println("Looking for new messages")
-
-	// 	newTransactions, err := mamgoiota.ReadTransactions(address, c)
-	// 	if err != nil {
-	// 		panic(err)
-	// 	}
-
-	// 	if len(lastTransactions) != 0 && len(lastTransactions) < len(newTransactions) {
-	// 		diff := len(newTransactions) - len(lastTransactions)
-
-	// 		fmt.Printf("Got %d new messages\n", diff)
-
-	// 		for i, m := range newTransactions[:diff] {
-	// 			tempValue.Number = i
-	// 			tempValue.Message = m.Message
-	// 			tempValue.Value = m.Value
-	// 			tempValue.Timestamp = m.Timestamp
-
-	// 			collectedMessages = append(collectedMessages, tempValue)
-	// 			fmt.Printf("%d. %v\n", i+1, m.Message)
-	// 		}
-
-	// 		lastTransactions = newTransactions
-	// 		renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)
-	// 		return
-	// 	}
-
-	//lastTransactions = newTransactions
-	//fmt.Println("No new messages")
-	//}
 
 	renderTemplate(w, r, "queryaddressformessages.html", collectedMessages)
 
