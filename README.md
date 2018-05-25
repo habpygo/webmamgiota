@@ -5,11 +5,12 @@
 NOTE: Tab `Check for IoT data` not working yet. Work in progress.
 NOTE: You must fill in a number (0 is fine) in the Value IOTAs field, otherwise the app will panic.
 
-This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed. Otherwise and even better, use Spamnet at https://nodes.spamnet.iota.org/ (Previous testnet) for testing purposes, with a MWM of 14 as is suggested here https://blog.iota.org/first-of-the-new-testnets-live-f8f41b99e9a3
+This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed. Otherwise and even better, use https://nodes.testnet.thetangle.org:443 and later Spamnet at https://nodes.spamnet.iota.org/ (Previous testnet) for testing purposes,with a MWM of 9 to 14 as is suggested here https://blog.iota.org/first-of-the-new-testnets-live-f8f41b99e9a3 I've set mwm to 9 which is fast.
 
 `webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI.
 
-This project is still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs.
+This is work in progress and still under construction (see TODO) with the aim to get IoT sensors and devices to send MAMs. No Merkle Tree is implemented yet, which 
+is a priority for now.
 
 ## Install
 
@@ -24,7 +25,7 @@ After that you can download the webmamgiota package.
 ```go
 go get -u github.com/habpygo/webmamgiota
 ```
-
+It is assumed that in will be installed in your `$GOPATH/src` otherwise you will have to vendor it yourself.
 ## Sending MAMs to the IOTA tangle with Go
 
 ### API
