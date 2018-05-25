@@ -128,6 +128,8 @@ If the Node is offline try another one, mentioned above.
 Most TODO'a are similar to the `mam.client.go`.
 ### TODOs
 
+- [ ] Make use of Merkle Tree (binary) to make proper masked authenticated messages, a priority for now
+- [ ] Still receiving Travis errors
 - [ ] GoDoc
 - [ ] Read sensor data, e.g. RuuVi tag
 - [ ] More Read options
