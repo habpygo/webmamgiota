@@ -24,17 +24,17 @@ package controllers
 import (
 	"fmt"
 	"iota/webmamgiota/connections"
+	"iota/webmamgiota/web/metadata"
 	"net/http"
 	"time"
 )
 
 //ReceiveHandler checks for new messages every n seconds
 func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
-	address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
+	//address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
+	//provider := "http://node02.iotatoken.nl:14265"
 
-	provider := "http://node02.iotatoken.nl:14265"
-
-	c, err := connections.NewConnection(provider, "")
+	c, err := connections.NewConnection(metadata.Provider, "")
 	if err != nil {
 		panic(err)
 	}
@@ -47,7 +47,7 @@ func ReceiveHandler(w http.ResponseWriter, r *http.Request) {
 	doEvery(n*time.Second, func(t time.Time) {
 		fmt.Println("Looking for new messages")
 
-		newTransactions, err := connections.ReadTransactions(address, c)
+		newTransactions, err := connections.ReadTransactions(metadata.Address, c)
 		if err != nil {
 			panic(err)
 		}

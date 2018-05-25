@@ -24,6 +24,7 @@ package controllers
 import (
 	"fmt"
 	"iota/webmamgiota/connections"
+	"iota/webmamgiota/web/metadata"
 	"net/http"
 	"strconv"
 )
@@ -31,8 +32,8 @@ import (
 /* various addresses used by Jonah and me */
 //var address = "RQP9IFNFGZGFKRVVKUPMYMPZMAICIGX9SVMBPNASEBWJZZAVDCMNOFLMRMFRSQVOQGUVGEETKYFCUPNDDWEKYHSALY"
 //var address = "UOKSEHAQCBPTCYGLQHUFLGJLQVSGMF9EPITW9QFDVPPXXDINMTLCYYSYTSGSUHP9YBGYKDZBKSAGBVULZPOWXNDHPX"
-var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
-var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
+//var address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
+//var seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 
 //SendHandler retrieves the message values from the webpage and sends it to the address given
 func SendHandler(w http.ResponseWriter, r *http.Request) {
@@ -47,7 +48,12 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 		Success:       false,
 		Response:      false,
 	}
-	c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	/*
+		TRY THIS OUT WITH https://nodes.testnet.thetangle.org:443/
+	*/
+	//c, err := connections.NewConnection("http://node02.iotatoken.nl:14265", seed)
+	c, err := connections.NewConnection(metadata.Provider, metadata.Seed)
+
 	if err != nil {
 		panic(err)
 	}
@@ -63,7 +69,7 @@ func SendHandler(w http.ResponseWriter, r *http.Request) {
 
 		newMamMessage.Value = value
 
-		txid, err := connections.Send(address, newMamMessage.Value, newMamMessage.Message, c)
+		txid, err := connections.Send(metadata.Address, newMamMessage.Value, newMamMessage.Message, c)
 		if err != nil {
 			panic(fmt.Errorf("Transaction failed: %v", err))
 		}

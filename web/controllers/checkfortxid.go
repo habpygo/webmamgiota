@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"iota/webmamgiota/connections"
+	"iota/webmamgiota/web/metadata"
 )
 
 //CheckForTxIdHandler returns the message, value(when applicable) and address of recipient for a given transaction
@@ -19,12 +20,12 @@ func CheckForTxIdHandler(w http.ResponseWriter, r *http.Request) {
 		Message:   "Just the same old story",
 		Recipient: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
 	}
-	seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
+	//seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 
-	provider := "http://node02.iotatoken.nl:14265"
+	//provider := "http://node02.iotatoken.nl:14265"
 	//provider := "http://nodes.spamnet.iota.org"
 
-	c, err := connections.NewConnection(provider, seed)
+	c, err := connections.NewConnection(metadata.Provider, metadata.Seed)
 	if err != nil {
 		panic(err)
 	}

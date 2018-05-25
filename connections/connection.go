@@ -1,14 +1,18 @@
 package connections
 
-import "github.com/giota"
+import (
+	"iota/webmamgiota/web/metadata"
+
+	"github.com/giota"
+)
 
 //NewConnection establishes a connection with the given provider and the seed
 func NewConnection(provider, seed string) (*Connection, error) {
 	return &Connection{
 		api:      giota.NewAPI(provider, nil),
-		seed:     seed,
+		seed:     metadata.Seed,
 		security: 3,
-		mwm:      15,
+		mwm:      metadata.MWM,
 	}, nil
 }
 
