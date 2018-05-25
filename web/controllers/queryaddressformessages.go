@@ -27,14 +27,10 @@ type MAMBoardSetup struct {
 
 //AllMessagesForAddressHandler will collect all the mesages and puts it into the messageCollection slice
 func AllMessagesForAddressHandler(w http.ResponseWriter, r *http.Request) {
-	//address := "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
-	//seed := "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
 	trytesSeed, err := giota.ToTrytes(metadata.Seed)
 	if err != nil {
 		panic(err)
 	}
-	//provider := "http://node02.iotatoken.nl:14265"
-	//provider := "http://nodes.spamnet.iota.org"
 
 	c, err := connections.NewConnection(metadata.Provider, "")
 	if err != nil {

@@ -9,12 +9,12 @@ http:// addresses and seeds
 */
 package metadata
 
-var Address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 var Seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
+var Address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
 
 var Provider = "https://nodes.testnet.thetangle.org:443"
 
-var MWM int64 = 9 // In the real world set to 14 or 15!
+var MWM int64 = 9 // In the real world set this to 14 or 15!
 
 /*
 Min Weight Magnitude (MWM) - the amount of Work that will be carried out in the PoW stage.
