@@ -10,9 +10,9 @@ http:// addresses and seeds
 package metadata
 
 var Seed = "THISISTHETESTSENTENCETOEXPERIMENTWITHIOTATANGLEFORPROGRAMMINGUSECASESASWELLASFUN9"
-var Address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC"
+var Address = "TVWZVZZLWSMLXYTFQNVQSAGCQLRRCUXMUDDQWJILNQGOIFKMA9PKBRKORIWOOF9WQLJWGVGTWUXPNNKNYSRBAWUWQC" // also root?
 
-var Provider = "https://nodes.testnet.thetangle.org:443"
+var Provider = "https://nodes.devnet.thetangle.org:443" //"https://nodes.testnet.thetangle.org:443"
 
 var MWM int64 = 9 // In the real world set this to 14 or 15!
 
