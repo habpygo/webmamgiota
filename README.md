@@ -5,7 +5,7 @@
 NOTE: Tab `Check for IoT data` not working yet. Work in progress.
 NOTE: You must fill in a number (0 is fine) in the Value IOTAs field, otherwise the app will panic.
 
-This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed. Otherwise and even better, use https://nodes.devnet.thetangle.org:443 (Previous testnet) for testing purposes,with a MWM of 9 to 14 as is suggested here https://blog.iota.org/first-of-the-new-testnets-live-f8f41b99e9a3 I've set mwm to 9 which is fast.
+This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed. Otherwise and even better, use https://nodes.devnet.thetangle.org:443 (Previous testnet) for testing purposes,with a MWM of 9 to 14 as is suggested here https://blog.iota.org/first-of-the-new-testnets-live-f8f41b99e9a3 I've set mwm to 9 which is fast. You can change these settings in the `metadata.go` file.
 
 `webmamgiota` is a small project to implement Masked Authenticated Messaging on the IOTA tangle with Golang via a web UI.
 
@@ -45,16 +45,9 @@ func main() {
 }
 ```
 
-The node currently defauls to `http://node02.iotatoken.nl:14265` but any 
-nodeURL works.
-If you don't have a nodeURL try out one from: http://iotasupport.com/lightwallet.shtml
-
 If you don't have a seed yet, follow the description here: https://iota.readme.io/docs/securely-generating-a-seed
 
-Please keep in mind that you may NEVER loose this seed nor give it to anybody else, because the seed is the connection to your funds!
-
-
-
+Please keep in mind that you may NEVER lose this seed nor give it to anybody else, because the seed is the connection to your funds!
 
 #### Send a MAM to the IOTA tangle
 
@@ -65,67 +58,8 @@ You can also peruse it here https://thetangle.org giving the TransactionId.
 
 <!-- If you want to transfer value aswell (here 100 IOTA) call the send method like this: ```Send("the receiving address", 100, "your stringified message", c)```. -->
 
-#### Read data from the IOTA tangle from the CLI
-
-Reading all transaction received by a certain adress:
-```go
-import "github.com/iotaledger/mamgoiota"
-
-func main(){
-    c, err := NewConnection("someNodeURL", "")
-    if err != nil{
-        panic(err)
-    }
-
-    ts, err := ReadTransactions("Receiving Address", c)
-    if err != nil{
-        panic(err)
-    }
-    for i, tr := range ts {
-        t.Logf("%d. %v: %d IOTA, %v to %v\n", i+1, tr.Timestamp, tr.Value, tr.Message, tr.Recipient)
-    }
-}
-```
-The seed can be ommitted here, since reading does not require an account
 
 
-
-Reading a special transaction by transactionID:
-```go
-import "github.com/iotaledger/mamgoiota"
-
-func main(){
-    c, err := NewConnection("someNodeURL", "")
-    if err != nil{
-        panic(err)
-    }
-
-    tx, err := ReadTransaction("Some transactionID", c)
-    if err != nil{
-        panic(err)
-    }
-    t.Logf("%v: %d IOTA, %v to %v\n", tx.Timestamp, tx.Value, tx.Message, tx.Recipient)
-}
-```
-
-#### Examples webmamgiota/mamgoiota
-
-These examples won't work anymore on this site. Hopefully we will manage to get this workin with the `iotaledger/iota.lib.go` repository on GitHub.
-
-Check out our [example folder](/example) for a send and a receive example.
-
-To run this, cd into the example folder and edit the `sender/send.go` and `receiver/receive.go` file, set the correct provider and address and you are ready to run.
-
-Start the receiver first: `$ go run receiver/receive.go`. It will check for new messages every 5 seconds, until cancelled.
-
-Then start the sender: `$ go run sender/send.go`.
-
-You can also read all the past transactions, i.e. messages + value,  at the address: `go run history/history.go`.
-
-If you pick up the transaction hash from the Terminal output and paste it into the input field on the site https://thetangle.org you find your transaction.
-
-If the Node is offline try another one, mentioned above.
-Most TODO'a are similar to the `mam.client.go`.
 ### TODOs
 
 - [ ] Make use of Merkle Tree (binary) to make proper masked authenticated messages, a priority for now
