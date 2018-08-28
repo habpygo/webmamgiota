@@ -2,7 +2,7 @@
 
 <span style="color:red">WARNING: DO NOT USE THE SEED OF YOUR WALLET!</span> 
 
-NOTE: Tab `Check for IoT data` not working yet. Work in progress.
+NOTE: Tab `Check for IoT data` not working yet. Work in progress. This is not according to the MAM specifications yet. Just a zero-value message that could come in handy for quick and dirty testing.
 NOTE: You must fill in a number (0 is fine) in the Value IOTAs field, otherwise the app will panic.
 
 This web-app is still under construction and no safety tests have been conducted yet. If you want to, only use small IOTA values, and do not use our wallet seed. Otherwise and even better, use https://nodes.devnet.thetangle.org:443 (Previous testnet) for testing purposes,with a MWM of 9 to 14 as is suggested here https://blog.iota.org/first-of-the-new-testnets-live-f8f41b99e9a3 I've set mwm to 9 which is fast. You can change these settings in the `metadata.go` file.
